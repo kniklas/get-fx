@@ -1,6 +1,25 @@
+import requests
+from unittest.mock import patch
 import pytest
 from getfx import GetFx
-# TODO: apply mock for connection, handle date as parameter
+# TODO: handle date as parameter
+# TODO: handle other status codes than 200 and 404
+
+
+class ResponseGetMock(object):
+
+    def __init__(self, code):
+        self.status_code = code
+
+    def json(self):
+        json_response = {"table": "A",
+                         "currency": "frank szwajcarski",
+                         "code": "CHF",
+                         "rates": [{
+                             "no": "203/A/NBP/2020",
+                             "effectiveDate": "2020-10-16",
+                             "mid": 4.2571}]}
+        return json_response
 
 
 @pytest.fixture
@@ -23,19 +42,22 @@ def test_URL_for_currency(getfx, currency, expected_url):
     assert getfx.get_request_url(currency) == expected_url
 
 
-@pytest.mark.parametrize("currency, expected", (
-    ("CHF", 200),
-    ("EUR", 200),
-    ("USD", 200),
-    ("", 404),
-    ("a", 404),
-    ("USDa", 404)
- ))
-def test_URL_connection(getfx, currency, expected):
-    assert getfx.get_raw_response(currency).status_code == expected
-
-
-def test_URL_exception(getfx):
+@patch.object(requests, 'get', return_value=ResponseGetMock(404))
+def test_mocked_URL_exception(mock_object, getfx):
     with pytest.raises(Exception):
-        getfx.get_response('a')
-    assert getfx.json_resp == []
+        getfx.get_response("R")
+    assert mock_object
+
+
+@patch.object(requests, 'get', return_value=ResponseGetMock(200))
+def test_mocked_json(mock_object, getfx):
+    getfx.get_response("CHF")
+    assert getfx.json_resp['mid'] == 4.2571
+
+
+@patch.object(requests, 'get', return_value=ResponseGetMock(200))
+def test_mocked_store_response(mock_object, getfx):
+    getfx.get_response("CHF")
+    assert getfx.table_number == "203/A/NBP/2020"
+    assert getfx.effective_date == "2020-10-16"
+    assert getfx.rate == 4.2571
