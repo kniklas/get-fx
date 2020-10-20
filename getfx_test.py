@@ -26,7 +26,7 @@ class ResponseGetMock(object):
 def getfx():
     getfx = GetFx()
     yield getfx  # use generator to perform teardown
-    getfx.delete()
+    getfx._delete()
 
 
 def test_getfx_initialization(getfx):
@@ -39,25 +39,26 @@ def test_getfx_initialization(getfx):
     ("USD", "http://api.nbp.pl/api/exchangerates/rates/A/USD")
  ))
 def test_URL_for_currency(getfx, currency, expected_url):
-    assert getfx.get_request_url(currency) == expected_url
+    assert getfx._get_request_url(currency) == expected_url
 
 
 @patch.object(requests, 'get', return_value=ResponseGetMock(404))
 def test_mocked_URL_exception(mock_object, getfx):
     with pytest.raises(Exception):
-        getfx.get_response("R")
+        getfx._get_response("R")
     assert mock_object
 
 
 @patch.object(requests, 'get', return_value=ResponseGetMock(200))
 def test_mocked_json(mock_object, getfx):
-    getfx.get_response("CHF")
-    assert getfx.json_resp['mid'] == 4.2571
+    getfx._get_response("CHF")
+    assert getfx._json_resp['mid'] == 4.2571
 
 
 @patch.object(requests, 'get', return_value=ResponseGetMock(200))
 def test_mocked_store_response(mock_object, getfx):
-    getfx.get_response("CHF")
-    assert getfx.table_number == "203/A/NBP/2020"
-    assert getfx.effective_date == "2020-10-16"
-    assert getfx.rate == 4.2571
+    getfx._get_response("CHF")
+    assert getfx._currency_code == "CHF"
+    assert getfx._table_number == "203/A/NBP/2020"
+    assert getfx._effective_date == "2020-10-16"
+    assert getfx._rate == 4.2571
