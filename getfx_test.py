@@ -1,9 +1,11 @@
 import requests
 from unittest.mock import patch
+
 import pytest
 from getfx import GetFx
-# TODO: handle date as parameter
-# TODO: handle other status codes than 200 and 404
+
+
+STANDARD_RESPONSE_LIST = ["CHF", "203/A/NBP/2020", "2020-10-16", 4.2571]
 
 
 class ResponseGetMock(object):
@@ -33,13 +35,15 @@ def test_getfx_initialization(getfx):
     assert getfx
 
 
-@pytest.mark.parametrize("currency, expected_url", (
-    ("CHF", "http://api.nbp.pl/api/exchangerates/rates/A/CHF"),
-    ("EUR", "http://api.nbp.pl/api/exchangerates/rates/A/EUR"),
-    ("USD", "http://api.nbp.pl/api/exchangerates/rates/A/USD")
+@pytest.mark.parametrize("currency, date, expected_url", (
+    ("CHF", None, "http://api.nbp.pl/api/exchangerates/rates/A/CHF"),
+    ("CHF", "2020-10-16",
+     "http://api.nbp.pl/api/exchangerates/rates/A/CHF/2020-10-16"),
+    ("EUR", None, "http://api.nbp.pl/api/exchangerates/rates/A/EUR"),
+    ("USD", None, "http://api.nbp.pl/api/exchangerates/rates/A/USD")
  ))
-def test_URL_for_currency(getfx, currency, expected_url):
-    assert getfx._get_request_url(currency) == expected_url
+def test_URL_for_currency(getfx, currency, date, expected_url):
+    assert getfx._get_request_url(currency, date) == expected_url
 
 
 @patch.object(requests, 'get', return_value=ResponseGetMock(404))
@@ -55,10 +59,15 @@ def test_mocked_json(mock_object, getfx):
     assert getfx._json_resp['mid'] == 4.2571
 
 
+@pytest.mark.parametrize("currency, date, expected_result", (
+    ("CHF", None, STANDARD_RESPONSE_LIST),
+    ("CHF", "2020-10-16", STANDARD_RESPONSE_LIST)
+))
 @patch.object(requests, 'get', return_value=ResponseGetMock(200))
-def test_mocked_store_response(mock_object, getfx):
-    getfx._get_response("CHF")
-    assert getfx._currency_code == "CHF"
-    assert getfx._table_number == "203/A/NBP/2020"
-    assert getfx._effective_date == "2020-10-16"
-    assert getfx._rate == 4.2571
+def test_mocked_store_response(mock_object, getfx, currency, date,
+                               expected_result):
+    getfx._get_response(currency, date)
+    assert getfx._currency_code == expected_result[0]
+    assert getfx._table_number == expected_result[1]
+    assert getfx._effective_date == expected_result[2]
+    assert getfx._rate == expected_result[3]
