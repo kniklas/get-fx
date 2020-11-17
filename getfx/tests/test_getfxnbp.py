@@ -2,7 +2,7 @@ import requests
 from unittest.mock import patch
 
 import pytest
-from getfx import GetFxNBP
+from getfx.getfxnbp import GetFxNBP
 
 
 STANDARD_RESPONSE_LIST = ["CHF", "203/A/NBP/2020", "2020-10-16", 4.2571]
