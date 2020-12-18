@@ -1,5 +1,7 @@
+.DS_Store
 .python-version
 .coverage
 *.swp
 *,cover
 __pycache__/
+htmlcov/

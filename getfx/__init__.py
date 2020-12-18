@@ -7,7 +7,5 @@ predefined manner. Each specific FX API provider requires new module based on
 Modules:
 - `getfx` -- base functionality to be extended by specific API implementation
 - `getfxnbp` -- specific NBP API implementation
-- `parser` -- parsing commandline interface
+- `cmdparser` -- parsing commandline interface
 """
-
-from getfx.getfx import GetFX
