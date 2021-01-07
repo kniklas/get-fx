@@ -3,7 +3,7 @@
 Get FX is tool to download average FX rates from National Bank of Poland (NBP)
 
 ![](https://github.com/kniklas/get-fx/workflows/build/badge.svg)
-[![Coverage Status](https://coveralls.io/repos/github/kniklas/get-fx/badge.svg?branch=master&t=xgdvqo)](https://coveralls.io/github/kniklas/get-fx?branch=master)
+Master: [![Coverage Status](https://coveralls.io/repos/github/kniklas/get-fx/badge.svg?branch=master&t=xgdvqo)](https://coveralls.io/github/kniklas/get-fx?branch=master) Dev: [![Coverage Status](https://coveralls.io/repos/github/kniklas/get-fx/badge.svg?branch=dev&t=xgdvqo)](https://coveralls.io/github/kniklas/get-fx?branch=dev)
 
 
 # Usage
