@@ -5,3 +5,7 @@
 *,cover
 __pycache__/
 htmlcov/
+build/
+dist/
+get_fx_kniklas.egg-info/
+getfx.egg-info/
