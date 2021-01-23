@@ -8,6 +8,7 @@ setuptools.setup(
     name="get-fx-kniklas",
     version="0.1.0",
     author="Kamil Niklasinski",
+    license="Apache 2",
     author_email="kamil.niklasinski@gmail.com",
     keywords='NBP API FX',
     description="Get FX is tool to retrieve average FX rates from NBP",
