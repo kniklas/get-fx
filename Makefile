@@ -8,9 +8,10 @@ test-cov:
 	coverage report -m
 
 build:
+	python3 -m pip install --upgrade setuptools wheel
 	python3 setup.py sdist bdist_wheel
 
-build-clean:
+clean:
 	rm -rf dist/ get_fx_kniklas.egg-info/ build/
 
 build-test:

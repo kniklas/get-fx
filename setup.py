@@ -3,6 +3,7 @@ import setuptools
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
+
 setuptools.setup(
     name="get-fx-kniklas",
     version="0.1.0",
@@ -16,7 +17,9 @@ setuptools.setup(
         'source': 'https://github.com/kniklas/get-fx'
     },
     url="https://github.com/kniklas/get-fx",
+    setup_requires=['wheel'],
     packages=setuptools.find_packages(),
+    install_requires=['requests'],
     py_modules=["getfxnbp"],
     classifiers=[
         "Development Status :: 3 - Alpha",
