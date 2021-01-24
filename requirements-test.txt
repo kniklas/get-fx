@@ -1,0 +1,5 @@
+coverage
+pytest
+flake8
+tox
+tox-pyenv
