@@ -1,0 +1,6 @@
+entry-point-inspector
+wdb
+wdb-server
+pytest-watch
+pyenv
+pyenv-virtualenv
