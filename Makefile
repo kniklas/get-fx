@@ -12,11 +12,10 @@ build:
 	python3 setup.py sdist bdist_wheel
 
 clean:
-	rm -rf dist/ get_fx_kniklas.egg-info/ build/
+	rm -vrf dist/ getfx/getfx.egg-info/ getfx.egg-info/ get_fx_kniklas.egg-info/ build/
 
 build-test:
 	pip install -e .
-	python3 -m getfx USD
 
 requirements:
 	pip3 freeze > requirements.txt

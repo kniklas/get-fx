@@ -6,5 +6,5 @@ It implements FX retrieval for NBP API using module: `getfxnbp` and method:
 
 
 if __name__ == '__main__':
-    from getfx.getfxnbp import init_cmd
+    from getfxnbp import init_cmd
     init_cmd()
