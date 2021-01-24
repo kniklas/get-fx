@@ -5,7 +5,7 @@
 Install [pyenv](https://github.com/pyenv/pyenv).
 
 Make sure you have installed python version in `pyenv`:
-* `cd $(pyenv root) && git pull)` - update python versions in pyenv
+* `cd $(pyenv root) && git pull` - update python versions in pyenv
 * `pyenv install --list` - List all available for installation python versions
 * `pyenv install <python-version>` - specify version avaialble for install. Note installation might take a while
 
@@ -31,10 +31,20 @@ Best if you define specific python version / virtual environment in `.python-ver
 * removing `.python-version` will set the directly to the global python version (if python version was set)
 
 
-## pip3
+## Dependencies
 
-`pip3 freeze > requirements.txt` - to dump the requirements
-`pip3 install -r requirements.txt` - to install as per requirements
+Required to build package: `pip3 install setuptools`.
+
+There are three files where dependencies are defiend:
+* `requirements-build.txt` - packages required to build / run software from the code without tests (minimum). This must be in sync with `setup.py` -> `required_install`
+* `requirements-test.txt` - additional packages required for running tests
+* `requirements-dev.txt` - additional packages required to develop, debug software. In order to have complete development environment all three requirements files must be installed.
+
+Do not use `pip3 freeze > requirements.txt` - as the dump is very long and might contain unecessary packages!
+
+`pip3 install -r requirements-build.txt` - to install required minimum of packages required to run softare from the code.
+
+If you wish to remove all packages, use: `pip freeze | xargs pip uninstall -y` [stack overflow](https://stackoverflow.com/a/11250821)
 
 
 ## testing
@@ -45,3 +55,12 @@ attributes.
 
 Unit tests should be executed using `pytest` command, or checked constantly
 during development using `ptw` (pytest watch).
+
+
+## Testing using multiple Python versions
+
+It has been verified that it is possible to use testing matrix from github actions from Python version 3.4. However replication of this testing using tox locally hit problems when building a package after `make clean` command is invoked. Specifically this error was raised: `FileNotFoundError: [Errno 2] No such file or directory: 'README.md'`.
+
+In the future it might be considered to use tox support for following python versions:
+* 3.4.2 - Debian 8 Jessie (2015 - 2018)
+* 3.5.3 - Debian 9 Stretch (2017 - )

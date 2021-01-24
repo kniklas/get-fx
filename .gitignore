@@ -9,3 +9,5 @@ build/
 dist/
 get_fx_kniklas.egg-info/
 getfx.egg-info/
+.eggs/
+.tox/

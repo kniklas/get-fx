@@ -12,15 +12,8 @@ parse commandline arguments.
 import requests
 import sys
 
-try:
-    # Below is implemented only for unit tests to pass
-    from getfx.cmdparser import DEFAULT_CURRENCY, parse_getfx
-    from getfx.getfx import GetFX
-except ImportError:
-    # Below is required if run from command line
-    # NOTE: below is not unit tested might be not required if package is used
-    from cmdparser import DEFAULT_CURRENCY, parse_getfx
-    from getfx import GetFX
+from getfx.cmdparser import DEFAULT_CURRENCY, parse_getfx
+from getfx.getfx import GetFX
 
 NBP_API_URL = "http://api.nbp.pl/api/exchangerates/rates/A"
 
