@@ -6,6 +6,7 @@ Methods and attributes:
 """
 
 import argparse as ap
+import getfx
 
 DEFAULT_CURRENCY = "CHF"
 
@@ -28,8 +29,8 @@ def parse_getfx(test_args=None):
     """
 
     description_string = (
-        "GetFx : Copyright (c) 2020 Kamil Niklasiński\n"
-        "Program to display currency exchange rate."
+        "GetFx {}: Copyright (c) 2020".format(getfx.__version__) +
+        " Kamil Niklasiński\nProgram to display currency exchange rate."
     )
     epilog_string = "Please note this program comes without any warranty!"
 

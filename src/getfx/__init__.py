@@ -9,3 +9,5 @@ Modules:
 - `getfxnbp` -- specific NBP API implementation
 - `cmdparser` -- parsing commandline interface
 """
+
+__version__ = "0.1.0"
