@@ -1,12 +1,19 @@
-"""Module implements NBP specific API to retrieve FX rates.
+"""
 
-Module provides NBP API class: `GetFXNBP` which implements specific methods to
-retrieve FX rates. It uses module variables:
-- `NBP_API_URL` -- specifies URL for NBP API web service
+GetFX NBP API module
+====================
 
-It depends on importing `DEFAULT_CURRENCY` from `cmdparser` modules to define
-which currency to use if it is not provided and on `parse_getfx()` method to
-parse commandline arguments.
+Module implements NBP specific API to retrieve FX rates.
+
+Provides :py:func:`init_cmd()` function to parse commandline attributes and
+:py:class:`GetFxNBP` class which implements specific methods to
+retrieve FX rates.
+
+It depends on :py:mod:`~getfx.cmdparser` module which provides
+:py:const:`~getfx.cmdparser.DEFAULT_CURRENCY` and
+:py:func:`~getfx.cmdparser.parse_getfx()` method to parse commandline
+arguments. It uses :py:const:`NBP_API_URL` which contains URL for NBP API.
+
 """
 
 import requests
@@ -15,22 +22,26 @@ import sys
 from getfx.cmdparser import DEFAULT_CURRENCY, parse_getfx
 from getfx.getfx import GetFX
 
+#: Defines NBP API URL used for requests
 NBP_API_URL = "http://api.nbp.pl/api/exchangerates/rates/A"
 
 
 def init_cmd(test_args=None):
-    """Parse command line attributes and create GetFXNBP instance.
+    """Parse command line attributes and create :py:class:`GetFxNBP` instance.
 
-    It uses `parse_args` method from `cmdparser` module to parse commandline
-    attributes. It creates instance of `GetFXNBP` object to handle request and
-    response from NBP API.
+    It uses :py:func:`~getfx.cmdparser.parse_getfx` to parse commandline
+    attributes. It creates instance of :py:class:`GetFxNBP` to
+    handle request and response from NBP API.
 
-    Raises SystemExit exception if incorrect attributes are used. Returned exit
-    codes:
-        0: no errors
-        1: no connection (see `_get_response()` method)
-        2: incorrect date or currency parameter
+    :raises SystemExit: for incorrect commandline attributes, with following
+        exit codes:
+
+        - `0` - no errors
+        - `1` - no connection (see :py:meth:`~.GetFxNBP._get_response` method)
+        - `2` - incorrect date or currency parameter
+
     """
+
     args = parse_getfx(test_args)
     try:
         getfx = GetFxNBP(args.currency, date=args.date)
@@ -42,11 +53,13 @@ def init_cmd(test_args=None):
 
 
 class GetFxNBP(GetFX):
-    """Subclass of `GetFX` class to implement NBP specific FX retrieval logic.
+    """Subclass of :py:class:`~getfx.getfx.GetFX` class to implement NBP
+    specific FX retrieval logic.
 
     It does not provide public methods, instead it is assumed when instance is
     created, NBP API is invoked and FX rate retrieved. Access to retrieved rate
-    is achieved via printing the instance using overriden: `__str__()` method.
+    is achieved via printing the instance using overriden: :py:meth:`.__str__`
+    method.
     """
 
     def __init__(self, currency=DEFAULT_CURRENCY, date=None):
@@ -77,8 +90,10 @@ class GetFxNBP(GetFX):
     def _get_response(self, currency, date=None):
         """Receive JSON response from FX provider.
 
-        Raises ValueError execption if incorrect parameters are used.
-        Exit and return exit code = 1 if no internet connection is found.
+        :raises ValueError:  incorrect request parameters
+        :raises ConnectionError: with exit code(1) when lack of internet
+            connection
+
         """
         try:
             resp = requests.get(self._get_request_url(currency, date))
