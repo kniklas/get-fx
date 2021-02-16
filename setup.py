@@ -1,18 +1,27 @@
 import setuptools
+import re
 from glob import glob
 from os.path import basename
 from os.path import splitext
 
+
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
+# Obtain version from __init__.py
+module_file = open("src/getfx/__init__.py").read()
+metadata = dict(re.findall(r"__([a-z]+)__\s*=\s*['\"]([^'\"]*)['\"]",
+                           module_file))
+
+name = "getfx"
+version = metadata['version']
 
 setuptools.setup(
-    name="getfx",
+    name=name,
     author="Kamil Niklasinski",
     license="Apache 2",
     author_email="kamil.niklasinski@gmail.com",
-    version="0.1.0",
+    version=version,
     keywords='NBP API FX',
     description="Get FX is tool to retrieve average FX rates from NBP",
     long_description=long_description,
@@ -25,9 +34,10 @@ setuptools.setup(
     entry_points={
         "console_scripts": ["getfx = getfx.getfxnbp:init_cmd"]},
     project_urls={
-        'source': 'https://github.com/kniklas/get-fx'
+        'Issue tracker': 'https://github.com/kniklas/get-fx/issues',
+        'Documentation': 'https://kniklas.github.io/getfx/',
+        'Source': 'https://github.com/kniklas/get-fx'
     },
-    url="https://github.com/kniklas/get-fx",
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Environment :: Console",
@@ -38,5 +48,5 @@ setuptools.setup(
         "Programming Language :: Python :: 3",
     ],
     python_requires='>=3.7',
-    platforms='any',
+    platforms='any'
 )
