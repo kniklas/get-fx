@@ -4,3 +4,4 @@ wdb-server
 pytest-watch
 pyenv
 pyenv-virtualenv
+docutils
