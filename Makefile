@@ -17,12 +17,13 @@ build: clean
 
 clean:
 	rm -vrf \
-		dist/ \
-		build/ \
-		getfx/getfx.egg-info/ \
-		getfx.egg-info/ \
-		src/getfx.egg-info/ \
-		get_fx_kniklas.egg-info/
+		dist \
+		build \
+		getfx \
+		.pytest_cache \
+		.eggs
+	find . -type d -name __pycache__ -exec rm -r {} \+
+	find . -type d -name getfx.egg-info -exec rm -r {} \+
 
 install-dependencies:
 	pip install -r requirements-build.txt

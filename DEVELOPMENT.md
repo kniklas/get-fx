@@ -56,6 +56,10 @@ attributes.
 Unit tests should be executed using `pytest` command, or checked constantly
 during development using `ptw` (pytest watch).
 
+### testing multiple python versions
+
+Do not use `tox` command as you may get failure that given python version is missing. In order to perform testing on multiple python versions use `make tox` instead.
+
 
 ## Testing using multiple Python versions
 
