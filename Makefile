@@ -15,15 +15,12 @@ build: clean
 	python3 setup.py sdist bdist_wheel
 	pip install -e .
 
-clean:
-	rm -vrf \
-		dist \
-		build \
-		getfx \
-		.pytest_cache \
-		.eggs
-	find . -type d -name __pycache__ -exec rm -r {} \+
-	find . -type d -name getfx.egg-info -exec rm -r {} \+
+doc: clean
+	mkdir -p doc
+	rst2html.py src/getfx/__init__.py > doc/__init__.html
+	rst2html.py src/getfx/cmdparser.py > doc/cmdparser.html
+	rst2html.py src/getfx/getfx.py > doc/getfx.html
+	rst2html.py src/getfx/getfxnbp.py > doc/getfxnbp.html
 
 install-dependencies:
 	pip install -r requirements-build.txt
@@ -44,3 +41,16 @@ python:
 	for i in $(VERSIONS); do \
 		pyenv install -s $i; \
 	done
+
+clean:
+	rm -vrf \
+		src/getfx/*.html \
+		dist \
+		build \
+		getfx \
+		.pytest_cache \
+		.eggs
+	rm -fv doc/*.html
+	find . -type d -name __pycache__ -exec rm -r {} \+
+	find . -type d -name getfx.egg-info -exec rm -r {} \+
+
