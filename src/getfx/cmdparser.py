@@ -3,9 +3,10 @@
 cmdparser (command line parser)
 ===============================
 
-Module implements specific commandline parsing in ``parse_getfx()`` method.
+Module implements specific commandline parsing in :py:func:`parse_getfx()`
+function and defines / uses below constant:
 
-:var DEFAULT_CURRENCY: defines default currency if not specified
+:py:const:`DEFAULT_CURRENCY` defines default currency (`CHF`)
 
 """
 
@@ -16,7 +17,7 @@ DEFAULT_CURRENCY = "CHF"
 
 
 def parse_getfx(test_args=None):
-    """Initialize argparse parser object and return parsed arguments.
+    """ Initialize argparse parser object and return parsed arguments.
 
     :keyword test_args: used as alternative to patch ``parse_args``
         or ``sys.argv`` for unit testing. Argment value ``None`` is used in

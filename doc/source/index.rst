@@ -17,11 +17,10 @@ Welcome to GetFX's documentation!
    :show-inheritance:
 
 
-.. autosummary::
-   getfx
-   getfx.getfx
-   getfx.getfxnbp
-   getfx.cmdparser
+.. .. autosummary::
+..    getfx.getfx
+..    getfx.getfxnbp
+..    getfx.cmdparser
 
 
 Indices and tables

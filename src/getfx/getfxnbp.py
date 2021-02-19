@@ -5,16 +5,17 @@ NBP API integration
 
 Module implements NBP specific API to retrieve FX rates.
 
-Provides ``init_cmd()`` method to parse commandline attributes and create
-``GetFXNBP`` class instance.
-
-Provides NBP API class: ``GetFXNBP`` which implements specific methods to
+Provides :py:func:`init_cmd()` function to parse commandline attributes and
+:py:class:`GetFxNBP` class which implements specific methods to
 retrieve FX rates.
 
-It depends on ``cmdparser`` module which provides ``DEFAULT_CURRENCY`` and
-``parse_getfx()`` method to parse commandline arguments.
+It depends on :py:mod:`~getfx.cmdparser` module which provides
+:py:const:`~getfx.cmdparser.DEFAULT_CURRENCY` and
+:py:func:`~getfx.cmdparser.parse_getfx()` method to parse commandline
+arguments.
 
-:var: NBP_API_URL - definition of URL for NBP API web service
+:py:const:`.NBP_API_URL` - definition of URL for NBP API web service
+    (http://api.nbp.pl/api/exchangerates/rates/A)
 
 """
 
@@ -28,16 +29,16 @@ NBP_API_URL = "http://api.nbp.pl/api/exchangerates/rates/A"
 
 
 def init_cmd(test_args=None):
-    """Parse command line attributes and create GetFXNBP instance.
+    """Parse command line attributes and create :py:class:`GetFxNBP` instance.
 
-    It uses ``parse_args`` method from ``cmdparser`` module to parse
-    commandline attributes. It creates instance of ``GetFXNBP`` object to
+    It uses :py:func:`~getfx.cmdparser.parse_getfx` to parse commandline
+    attributes. It creates instance of :py:class:`GetFxNBP` to
     handle request and response from NBP API.
 
     :raises SystemExit: incorrect commandline attributes, exit codes
 
         - `0` - no errors
-        - `1` - no connection (see ``_get_response()`` method)
+        - `1` - no connection (see :py:meth:`~.GetFxNBP._get_response` method)
         - `2` - incorrect date or currency parameter
 
     """
@@ -53,11 +54,12 @@ def init_cmd(test_args=None):
 
 
 class GetFxNBP(GetFX):
-    """Subclass of `GetFX` class to implement NBP specific FX retrieval logic.
+    """Subclass of :py:class:`~getfx.getfx.GetFX` class to implement NBP
+    specific FX retrieval logic.
 
     It does not provide public methods, instead it is assumed when instance is
     created, NBP API is invoked and FX rate retrieved. Access to retrieved rate
-    is achieved via printing the instance using overriden: ``__str__()``
+    is achieved via printing the instance using overriden: :py:meth:`.__str__`
     method.
     """
 
@@ -90,7 +92,8 @@ class GetFxNBP(GetFX):
         """Receive JSON response from FX provider.
 
         :raises ValueError:  incorrect request parameters
-        :raises ConnectionError: with exit code(1) if not internet connection
+        :raises ConnectionError: with exit code(1) when lack of internet
+            connection
 
         """
         try:

@@ -1,4 +1,7 @@
 .. automodule:: getfx.getfxnbp
-   :members:
+   :members: init_cmd
    :undoc-members:
    :show-inheritance:
+
+.. autoclass:: GetFxNBP
+      :members: __str__, _get_response
