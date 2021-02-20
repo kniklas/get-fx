@@ -4,15 +4,14 @@ cmdparser (command line parser)
 ===============================
 
 Module implements specific commandline parsing in :py:func:`parse_getfx()`
-function and defines / uses below constant:
-
-:py:const:`DEFAULT_CURRENCY` defines default currency (`CHF`)
+function and defines / uses constant: :py:const:`DEFAULT_CURRENCY`.
 
 """
 
 import argparse as ap
 import getfx
 
+#: Default currency if not given
 DEFAULT_CURRENCY = "CHF"
 
 

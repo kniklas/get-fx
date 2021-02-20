@@ -12,10 +12,7 @@ retrieve FX rates.
 It depends on :py:mod:`~getfx.cmdparser` module which provides
 :py:const:`~getfx.cmdparser.DEFAULT_CURRENCY` and
 :py:func:`~getfx.cmdparser.parse_getfx()` method to parse commandline
-arguments.
-
-:py:const:`.NBP_API_URL` - definition of URL for NBP API web service
-    (http://api.nbp.pl/api/exchangerates/rates/A)
+arguments. It uses :py:const:`NBP_API_URL` which contains URL for NBP API.
 
 """
 
@@ -25,6 +22,7 @@ import sys
 from getfx.cmdparser import DEFAULT_CURRENCY, parse_getfx
 from getfx.getfx import GetFX
 
+#: Defines NBP API URL used for requests
 NBP_API_URL = "http://api.nbp.pl/api/exchangerates/rates/A"
 
 
@@ -35,7 +33,8 @@ def init_cmd(test_args=None):
     attributes. It creates instance of :py:class:`GetFxNBP` to
     handle request and response from NBP API.
 
-    :raises SystemExit: incorrect commandline attributes, exit codes
+    :raises SystemExit: for incorrect commandline attributes, with following
+        exit codes:
 
         - `0` - no errors
         - `1` - no connection (see :py:meth:`~.GetFxNBP._get_response` method)
