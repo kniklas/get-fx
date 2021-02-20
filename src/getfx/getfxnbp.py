@@ -1,7 +1,7 @@
 """
 
-NBP API integration
-===================
+GetFX NBP API module
+====================
 
 Module implements NBP specific API to retrieve FX rates.
 

@@ -1,7 +1,7 @@
 """
 
-Base definition of FX handling
-==============================
+GetFX base module
+=================
 
 This module provides base functionality (implemented in :py:class:`GetFX`
 class) that should be extended by specific implementation for given FX

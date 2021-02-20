@@ -1,7 +1,7 @@
 """
 
-cmdparser (command line parser)
-===============================
+Commandline parser module
+=========================
 
 Module implements specific commandline parsing in :py:func:`parse_getfx()`
 function and defines / uses constant: :py:const:`DEFAULT_CURRENCY`.
