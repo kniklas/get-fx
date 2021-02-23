@@ -25,7 +25,7 @@ setuptools.setup(
     package_dir={'': 'src'},
     packages=setuptools.find_packages(where='src'),
     py_modules=[splitext(basename(path))[0] for path in glob('src/*.py')],
-    install_requires=['requests', 'sphinx'],
+    install_requires=['requests'],
     setup_requires=['setuptools', 'wheel'],
     entry_points={
         "console_scripts": ["getfx = getfx.getfxnbp:init_cmd"]},
