@@ -10,17 +10,13 @@ test-cov:
 	coverage run -m --source=src/ -m pytest
 	coverage report -m
 
-build: clean
+build: doc
 	python3 -m pip install --upgrade setuptools wheel
 	python3 setup.py sdist bdist_wheel
 	pip install -e .
 
 doc: clean
-	mkdir -p doc
-	rst2html.py src/getfx/__init__.py > doc/__init__.html
-	rst2html.py src/getfx/cmdparser.py > doc/cmdparser.html
-	rst2html.py src/getfx/getfx.py > doc/getfx.html
-	rst2html.py src/getfx/getfxnbp.py > doc/getfxnbp.html
+	python3 setup.py build_sphinx
 
 install-dependencies:
 	pip install -r requirements-build.txt
@@ -49,6 +45,7 @@ clean:
 		build \
 		getfx \
 		.pytest_cache \
+		doc/build \
 		.eggs
 	rm -fv doc/*.html
 	find . -type d -name __pycache__ -exec rm -r {} \+
