@@ -8,10 +8,4 @@ Welcome to GetFX's documentation!
    examples
    implementation/index
 
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+:ref:`search`

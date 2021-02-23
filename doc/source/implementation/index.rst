@@ -1,5 +1,5 @@
-Implementation Documentation
-============================
+Source documentation
+====================
 
 .. toctree::
    :maxdepth: 2
@@ -10,3 +10,10 @@ Implementation Documentation
    cmdparser
 
 .. :members: getfx, getfxnbp, cmdparser
+
+
+Indices and tables
+------------------
+
+* :ref:`genindex`
+* :ref:`modindex`
