@@ -1,5 +1,11 @@
 VERSIONS = 3.7.3 3.8.5 3.9.0
 PYENV := $(shell pyenv local)
+PUBLISH_REPO = kniklas.github.io
+CP_RM_FLAGS = -vrf
+PACKGE_VER := $(shell cat src/getfx/__init__.py \
+	| grep version \
+	| awk -F"= " '{ print $$2 }'\
+	| sed 's/"//g')
 
 test:
 	python3 -m getfx
@@ -33,13 +39,22 @@ tox: python
 	tox
 	pyenv local $(PYENV)
 
+publish: doc
+	@echo ===== PUBLISHING =====
+	rm $(CP_RM_FLAGS) ../$(PUBLISH_REPO)/getfx/*
+	cp $(CP_RM_FLAGS) doc/build/html/* ../$(PUBLISH_REPO)/getfx
+	cd ../$(PUBLISH_REPO) \
+		&& git add . \
+		&& git commit -m "Update web page for package version: $(PACKGE_VER)" \
+		&& git push
+
 python:
 	for i in $(VERSIONS); do \
 		pyenv install -s $i; \
 	done
 
 clean:
-	rm -vrf \
+	rm $(CP_RM_FLAGS) \
 		src/getfx/*.html \
 		dist \
 		build \
@@ -50,4 +65,3 @@ clean:
 	rm -fv doc/*.html
 	find . -type d -name __pycache__ -exec rm -r {} \+
 	find . -type d -name getfx.egg-info -exec rm -r {} \+
-
