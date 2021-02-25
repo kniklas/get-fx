@@ -16,13 +16,14 @@ test-cov:
 	coverage run -m --source=src/ -m pytest
 	coverage report -m
 
+doc: clean
+	sphinx-build -b html doc/source doc/build
+
 build: doc
+	@echo BUILDING PACKAGE
 	python3 -m pip install --upgrade setuptools wheel
 	python3 setup.py sdist bdist_wheel
 	pip install -e .
-
-doc: clean
-	python3 setup.py build_sphinx
 
 install-dependencies:
 	pip install -r requirements-build.txt
@@ -47,6 +48,9 @@ publish: doc
 		&& git add . \
 		&& git commit -m "Update web page for package version: $(PACKGE_VER)" \
 		&& git push
+
+push-pypi: build
+	python3 -m twine upload --repository testpypi --skip-existing dist/*
 
 python:
 	for i in $(VERSIONS); do \
