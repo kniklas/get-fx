@@ -1,15 +1,23 @@
 import setuptools
+import re
 from glob import glob
 from os.path import basename
 from os.path import splitext
+
 from sphinx.setup_command import BuildDoc
+
 
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
+# Obtain version from __init__.py
+module_file = open("src/getfx/__init__.py").read()
+metadata = dict(re.findall(r"__([a-z]+)__\s*=\s*['\"]([^'\"]*)['\"]",
+                           module_file))
+
 cmdclass = {'build_sphinx': BuildDoc}
 name = "getfx"
-version = "0.1.0"
+version = metadata['version']
 
 setuptools.setup(
     name=name,
