@@ -34,9 +34,10 @@ setuptools.setup(
     entry_points={
         "console_scripts": ["getfx = getfx.getfxnbp:init_cmd"]},
     project_urls={
-        'source': 'https://github.com/kniklas/get-fx'
+        'Issue tracker': 'https://github.com/kniklas/get-fx/issues',
+        'Documentation': 'https://kniklas.github.io/getfx/',
+        'Source': 'https://github.com/kniklas/get-fx'
     },
-    url="https://github.com/kniklas/get-fx",
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Environment :: Console",
