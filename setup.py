@@ -4,8 +4,6 @@ from glob import glob
 from os.path import basename
 from os.path import splitext
 
-from sphinx.setup_command import BuildDoc
-
 
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
@@ -15,7 +13,6 @@ module_file = open("src/getfx/__init__.py").read()
 metadata = dict(re.findall(r"__([a-z]+)__\s*=\s*['\"]([^'\"]*)['\"]",
                            module_file))
 
-cmdclass = {'build_sphinx': BuildDoc}
 name = "getfx"
 version = metadata['version']
 
@@ -25,7 +22,6 @@ setuptools.setup(
     license="Apache 2",
     author_email="kamil.niklasinski@gmail.com",
     version=version,
-    cmdclass=cmdclass,
     keywords='NBP API FX',
     description="Get FX is tool to retrieve average FX rates from NBP",
     long_description=long_description,
@@ -51,13 +47,5 @@ setuptools.setup(
         "Programming Language :: Python :: 3",
     ],
     python_requires='>=3.7',
-    platforms='any',
-    command_options={
-        'build_sphinx': {
-            'project': ('setup.py', name),
-            'version': ('setup.py', version),
-            'source_dir': ('setup.py', 'doc/source'),
-            'build_dir': ('setup.py', 'doc/build'),
-            'all_files': ('setup.py', True)
-        }}
+    platforms='any'
 )
