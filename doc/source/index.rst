@@ -1,5 +1,7 @@
-Welcome to GetFX's documentation!
-=================================
+GetFX documentation
+===================
+
+GetFX version: |version|
 
 .. toctree::
    :maxdepth: 2
