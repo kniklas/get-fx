@@ -3,7 +3,7 @@ import sys
 
 import getfx
 
-sys.path.insert(0, os.path.abspath('../src/getfx'))
+sys.path.insert(0, os.path.abspath('../src'))
 
 
 # -- Path setup --------------------------------------------------------------
