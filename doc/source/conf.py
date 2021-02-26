@@ -3,7 +3,7 @@ import sys
 
 sys.path.insert(0, os.path.abspath('../../src'))
 
-import getfx
+import getfx  # noqa: E402
 
 
 # -- Path setup --------------------------------------------------------------
