@@ -17,7 +17,7 @@ test-cov:
 	coverage report -m
 
 doc: clean
-	sphinx-build -b html doc/source doc/build
+	sphinx-build -a -b html doc/source doc/build
 
 build: doc
 	@echo BUILDING PACKAGE
