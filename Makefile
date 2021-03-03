@@ -21,12 +21,12 @@ tests: clean
 	pytest
 	flake8 .
 
-doc: clean
-	sphinx-build -a -b html doc/source doc/build/html
+docs: clean
+	sphinx-build -a -b html docs/source docs/build/html
 
 all: tests test-cov build
 
-build: doc
+build: docs
 	@echo BUILDING PACKAGE
 	python3 -m pip install --upgrade setuptools wheel
 	python3 setup.py sdist bdist_wheel
@@ -52,7 +52,7 @@ publish: doc
 	mkdir -pv ../$(PUBLISH_PROD_URL)
 	cd ../$(PUBLISH_PROD_URL) && git checkout master && git pull
 	rm $(CP_RM_FLAGS) ../$(PUBLISH_PROD_URL)/getfx/*
-	cp $(CP_RM_FLAGS) doc/build/html/* ../$(PUBLISH_PROD_URL)/getfx
+	cp $(CP_RM_FLAGS) docs/build/html/* ../$(PUBLISH_PROD_URL)/getfx
 	cd ../$(PUBLISH_PROD_URL) \
 		&& git add . \
 		&& git commit -m "Update web page for package version: $(PACKGE_VER)" \
@@ -73,8 +73,8 @@ clean:
 		build \
 		getfx \
 		.pytest_cache \
-		doc/build \
+		docs/build \
 		.eggs
-	rm -fv doc/*.html
+	rm -fv docs/*.html
 	find . -type d -name __pycache__ -exec rm -r {} \+
 	find . -type d -name getfx.egg-info -exec rm -r {} \+
