@@ -7,7 +7,7 @@ PACKGE_VER := $(shell cat src/getfx/__init__.py \
 	| awk -F"= " '{ print $$2 }'\
 	| sed 's/"//g')
 
-test:
+test-e2e:
 	python3 -m getfx
 	python3 -m getfx USD
 	python3 -m getfx GBP -d 2020-11-27
@@ -16,8 +16,14 @@ test-cov:
 	coverage run -m --source=src/ -m pytest
 	coverage report -m
 
+tests: clean
+	pytest
+	flake8 .
+
 doc: clean
 	sphinx-build -a -b html doc/source doc/build/html
+
+all: tests test-cov build
 
 build: doc
 	@echo BUILDING PACKAGE
