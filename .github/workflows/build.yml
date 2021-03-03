@@ -38,4 +38,3 @@ jobs:
     - name: Build & verify the package
       run: |
         make build
-        make test
