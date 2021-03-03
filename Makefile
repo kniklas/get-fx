@@ -42,6 +42,7 @@ tox: python
 
 publish: doc
 	@echo ===== PUBLISHING =====
+	cd ../$(PUBLISH_REPO_URL) && git checkout master && git pull
 	rm $(CP_RM_FLAGS) ../$(PUBLISH_REPO_URL)/getfx/*
 	cp $(CP_RM_FLAGS) doc/build/html/* ../$(PUBLISH_REPO_URL)/getfx
 	cd ../$(PUBLISH_REPO_URL) \
