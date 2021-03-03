@@ -1,6 +1,6 @@
 VERSIONS = 3.7.3 3.8.5 3.9.0
 PYENV := $(shell pyenv local)
-PUBLISH_REPO = kniklas.github.io
+PUBLISH_REPO_URL = kniklas.github.io
 CP_RM_FLAGS = -vrf
 PACKGE_VER := $(shell cat src/getfx/__init__.py \
 	| grep version \
@@ -17,7 +17,7 @@ test-cov:
 	coverage report -m
 
 doc: clean
-	sphinx-build -a -b html doc/source doc/build
+	sphinx-build -a -b html doc/source doc/build/html
 
 build: doc
 	@echo BUILDING PACKAGE
@@ -42,9 +42,9 @@ tox: python
 
 publish: doc
 	@echo ===== PUBLISHING =====
-	rm $(CP_RM_FLAGS) ../$(PUBLISH_REPO)/getfx/*
-	cp $(CP_RM_FLAGS) doc/build/html/* ../$(PUBLISH_REPO)/getfx
-	cd ../$(PUBLISH_REPO) \
+	rm $(CP_RM_FLAGS) ../$(PUBLISH_REPO_URL)/getfx/*
+	cp $(CP_RM_FLAGS) doc/build/html/* ../$(PUBLISH_REPO_URL)/getfx
+	cd ../$(PUBLISH_REPO_URL) \
 		&& git add . \
 		&& git commit -m "Update web page for package version: $(PACKGE_VER)" \
 		&& git push
