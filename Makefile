@@ -41,9 +41,9 @@ remove-dependencies:
 	pip freeze | grep -v "^-e" | xargs pip uninstall -y
 
 tox: python
-	pyenv local $(VERSIONS)
 	pip install tox tox-pyenv
 	pip install -U pip
+	pyenv local $(VERSIONS)
 	tox
 	pyenv local $(PYENV)
 
