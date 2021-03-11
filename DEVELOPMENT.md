@@ -31,6 +31,15 @@ Best if you define specific python version / virtual environment in `.python-ver
 * removing `.python-version` will set the directly to the global python version (if python version was set)
 
 
+### Tox and pyenv
+
+If you wish to use `make tox` to test multiple versions with `pyenv` please bear following in mind:
+* make sure you read how to use and what is impact of `pyenv local`, `pyenv global`, `pyenv shell` - see [documentation](https://github.com/pyenv/pyenv/blob/master/COMMANDS.md#pyenv-local)
+* use with caution `pyenv shell` as this may destabilise `make tox` and/or `pyenv`
+* use decent shell to display virtual environment and/or actual python version
+* look at [tox-pyenv-package](https://pypi.org/project/tox-pyenv/) for examples how to use pyenv and tox
+
+
 ## Dependencies
 
 Required to build package: `pip3 install setuptools`.
