@@ -39,3 +39,9 @@ jobs:
       - name: Build & verify the package
         run: |
           make build
+      - name: Publish
+        uses: JamesIves/github-pages-deploy-action@4.1.0
+        with:
+          branch: gh-pages
+          folder: docs/build/html
+
