@@ -39,9 +39,14 @@ jobs:
       - name: Build & verify the package
         run: |
           make build
-      - name: Publish with ${{ matrix.python-version }}
+      - name: Set environment variables
+        run: |
+          echo "GETFX_VER=$(pip show getfx | grep Version)" >> $GITHUB_ENV
+          echo "GITHUB_SHA_SHORT=$(echo $GITHUB_SHA | cut -c 1-8)" >> $GITHUB_ENV
+      - name: Publish documentation
         if: matrix.python-version == 3.9
         uses: JamesIves/github-pages-deploy-action@4.1.0
         with:
           branch: gh-pages
           folder: docs/build/html
+          commit-message: "Publish ${{ env.GETFX_VER }} from @ ${{ env.GITHUB_SHA_SHORT }}"
