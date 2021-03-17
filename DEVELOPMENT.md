@@ -1,5 +1,12 @@
 # Development specific instructions
 
+## Branches
+
+- master (protected): for production releases of documentation and package
+- dev (protected): for staging (testing) releases of documentation and package
+- other branches are feature branches that ideally be merged to dev using pull request
+
+
 ## pyenv
 
 Install [pyenv](https://github.com/pyenv/pyenv).
