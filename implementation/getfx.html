@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GetFX base module &#8212; GetFX  documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="GetFX NBP API module" href="getfxnbp.html" />
+    <link rel="prev" title="GetFX package" href="package.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <span class="target" id="module-getfx.getfx"></span><div class="section" id="getfx-base-module">
+<h1>GetFX base module<a class="headerlink" href="#getfx-base-module" title="Permalink to this headline">¶</a></h1>
+<p>This module provides base functionality (implemented in <a class="reference internal" href="#getfx.getfx.GetFX" title="getfx.getfx.GetFX"><code class="xref py py-class docutils literal notranslate"><span class="pre">GetFX</span></code></a>
+class) that should be extended by specific implementation for given FX
+provider.</p>
+<dl class="py class">
+<dt id="getfx.getfx.GetFX">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">getfx.getfx.</span></code><code class="sig-name descname"><span class="pre">GetFX</span></code><a class="headerlink" href="#getfx.getfx.GetFX" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Super class for FX object.</p>
+<p>It is expected this class to be <strong>always extended</strong> by specific
+implementation of a subclass to handle requests of specific FX
+provider/API.  It does not define public methods or instance attributes,
+because its subclass should re-use protected methods/attributes and define
+public methods.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">GetFX</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Source documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="package.html">GetFX package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">GetFX base module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getfxnbp.html">GetFX NBP API module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cmdparser.html">Commandline parser module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Source documentation</a><ul>
+      <li>Previous: <a href="package.html" title="previous chapter">GetFX package</a></li>
+      <li>Next: <a href="getfxnbp.html" title="next chapter">GetFX NBP API module</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Kamil Niklasinski.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/implementation/getfx.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
