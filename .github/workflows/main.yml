@@ -18,10 +18,10 @@ jobs:
         make test-cov
 
     - name: Coveralls
-      run: coveralls
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         COVERALLS_PARALLEL: true
+      run: coveralls
 
   coveralls_finish:
     name: Coveralls completion

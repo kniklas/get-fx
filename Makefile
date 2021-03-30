@@ -16,6 +16,7 @@ test-e2e:
 test-cov:
 	coverage run -m --source=src/ -m pytest
 	coverage report -m
+	coveralls
 
 tests: clean
 	pytest
