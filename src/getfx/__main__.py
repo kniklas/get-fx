@@ -1,7 +1,10 @@
-"""Module implements behaviour when package is executed from command line.
+"""
 
-It implements FX retrieval for NBP API using module: `getfxnbp` and method:
-`init_cmd()`, which depends on `cmdparser` module.
+Invoke commandline
+==================
+
+When `getfx` is run from commandline, it invokes FX retrieval using NBP API.
+
 """
 
 

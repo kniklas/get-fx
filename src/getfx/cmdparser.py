@@ -1,20 +1,28 @@
-"""Module implements specific commandline parsing.
+"""
 
-Methods and attributes:
-- `parse_getfx` -- method parses commandline arguments
-- `DEFAULT_CURRENCY` -- attribute defines default currency if not specified
+Commandline parser module
+=========================
+
+Module implements specific commandline parsing in :py:func:`parse_getfx()`
+function and defines / uses constant: :py:const:`DEFAULT_CURRENCY`.
+
 """
 
 import argparse as ap
 import getfx
 
+#: Default currency if not given
 DEFAULT_CURRENCY = "CHF"
 
 
 def parse_getfx(test_args=None):
-    """Initialize argparse parser object and return parsed arguments.
+    """ Initialize argparse parser object and return parsed arguments.
 
-    It returns `Namespace` object with parsed arguments, for example:
+    :keyword test_args: used as alternative to patch ``parse_args``
+        or ``sys.argv`` for unit testing. Argment value ``None`` is used in
+        real implemenation (not unit testing).
+    :returns: ``Namespace`` object with parsed arguments, for example
+
     >>> args=['USD', '-d', '2020-10-10']
     >>> parse_getfx(args)
     Namespace(currency='USD', date='2020-10-10')
@@ -23,15 +31,12 @@ def parse_getfx(test_args=None):
     >>> parse_getfx(args).date
     '2020-10-10'
 
-    Keyword argument `test_args` is used as alternative to patch `parse_args`
-    or `sys.argv` for unit testing. Argment value `None` is used in real
-    implemenation (not unit testing).
     """
 
     description_string = (
         "GetFx {}: Copyright (c) 2020".format(getfx.__version__) +
-        " Kamil Niklasiński\nProgram to display currency exchange rate."
-    )
+        " Kamil Niklasiński\nProgram to display currency exchange rate.")
+
     epilog_string = "Please note this program comes without any warranty!"
 
     parser = ap.ArgumentParser(description=description_string,
@@ -42,4 +47,5 @@ def parse_getfx(test_args=None):
                         help='Currency to get average NBP FX rate')
     parser.add_argument('-d', '--date',
                         help='effective currency exchange date')
+
     return parser.parse_args(test_args)

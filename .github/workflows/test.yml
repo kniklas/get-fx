@@ -1,5 +1,9 @@
-name: push
-on: [push, pull_request]
+name: Test Coveralls
+on:
+  push:
+    branches: [ master, dev ]
+  pull_request:
+    branches: [ master, dev ]
 
 jobs:
   test:
@@ -18,16 +22,20 @@ jobs:
         make test-cov
 
     - name: Coveralls
-      uses: AndreMiras/coveralls-python-action@develop
-      with:
-        parallel: true
-        flag-name: Unit Test
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        COVERALLS_PARALLEL: true
+      run: coveralls --service=github
 
   coveralls_finish:
+    name: Coveralls completion
     needs: test
     runs-on: ubuntu-latest
+    container: python:3-slim
     steps:
     - name: Coveralls Finished
-      uses: AndreMiras/coveralls-python-action@develop
-      with:
-        parallel-finished: true
+      run: |
+        pip3 install --upgrade coveralls
+        coveralls --service=github --finish
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
