@@ -47,6 +47,7 @@ jobs:
         run: |
           echo "GETFX_VER=$(pip show getfx | grep Version)" >> $GITHUB_ENV
           echo "GITHUB_SHA_SHORT=$(echo $GITHUB_SHA | cut -c 1-8)" >> $GITHUB_ENV
+          echo "GITHUB_BRANCH=$(git for-each-ref | grep $GITHUB_SHA | grep origin | sed "s/.*\///")" >> $GITHUB_ENV
       - name: Show github refs (for debug purposes)
         run: |
           echo github.ref : ${{ github.ref }} |
