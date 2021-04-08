@@ -55,9 +55,8 @@ jobs:
           # echo "GITHUB_BRANCH=$(git for-each-ref | grep $GITHUB_SHA_SHORT | grep origin | sed "s/.*\///")" >> $GITHUB_ENV
       - name: Run git for-each-ref
         run: |
-          git log -n 1
-          git branch --contains $GITHUB_SHA
-          git reflog show --all | grep $GITHUB_SHA
+          git branch
+          git reflog
           git for-each-ref | grep $GITHUB_SHA
           git for-each-ref | grep $GITHUB_SHA | grep origin | sed "s/.*\///"
           echo "GITHUB_BRANCH=$(git for-each-ref | grep $GITHUB_SHA | grep origin | sed "s/.*\///")" >> $GITHUB_ENV
