@@ -1,0 +1,66 @@
+# This workflow is invoked only if tag follows specific naming convention
+# TODO: consider how to use build earlier artifacts for publishing
+
+name: Publish (staging)
+
+on:
+  push:
+    tags:
+      - "v*-dev*"
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.7, 3.8, 3.9]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements-test.txt ]; then pip install -r requirements-test.txt; fi
+          if [ -f requirements-build.txt ]; then pip install -r requirements-build.txt; fi
+      - name: Lint with flake8
+        run: |
+          flake8 . --count --show-source --statistics
+          flake8 . --count --max-complexity=10 --max-line-length=80 --statistics
+      - name: Test with pytest
+        run: |
+          pytest
+      - name: Build & verify the package
+        run: |
+          make build
+        # ---- PUBLISHING SECTION STARTS HERE ----
+      - name: Set environment variables
+        run: |
+          echo "GETFX_VER=$(pip show getfx | grep Version)" >> $GITHUB_ENV
+          echo "GITHUB_SHA_SHORT=$(echo $GITHUB_SHA | cut -c 1-8)" >> $GITHUB_ENV
+      - name: Publish documentation to staging ENV (${{ github.ref }})
+        if: github.event_name == 'push' &&
+          startsWith(github.ref, 'refs/tags/v') &&
+          matrix.python-version == 3.9
+        uses: JamesIves/github-pages-deploy-action@4.1.0
+        with:
+          repository-name: kniklas/pages-staging
+          token: ${{ secrets.STAGING_PUBLISH_TOKEN }}
+          target-folder: getfx
+          branch: main
+          folder: docs/build/html
+          commit-message: "Publish ${{ env.GETFX_VER }} from @ ${{ env.GITHUB_SHA_SHORT }}"
+      - name: Publish package to test PyPi (${{ github.ref }})
+        if: github.event_name == 'push' &&
+          startsWith(github.ref, 'refs/tags/v') &&
+          matrix.python-version == 3.9
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          user: __token__
+          password: ${{ secrets.TEST_PYPI_API_TOKEN }}
+          repository_url: https://test.pypi.org/legacy/
