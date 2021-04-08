@@ -58,7 +58,7 @@ jobs:
         if: github.event_name == 'push' &&
           startsWith(github.ref, 'refs/tags/v') &&
           matrix.python-version == 3.9 &&
-          github.base_ref == 'refs/heads/dev'
+          ${{ env.GITHUB_BRANCH }} == 'dev'
         uses: JamesIves/github-pages-deploy-action@4.1.0
         with:
           # TODO: add if to check branch
