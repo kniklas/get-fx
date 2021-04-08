@@ -57,6 +57,7 @@ jobs:
         run: |
           git for-each-ref | grep $GITHUB_SHA
           git for-each-ref | grep $GITHUB_SHA | grep origin | sed "s/.*\///"
+          echo "GITHUB_BRANCH=$(git for-each-ref | grep $GITHUB_SHA | grep origin | sed "s/.*\///")" >> $GITHUB_ENV
       - name: Publish documentation to staging ENV (${{ github.ref }})
         # This will work only for dev branch (staging)
         if: github.event_name == 'push' &&
