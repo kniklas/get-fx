@@ -42,13 +42,15 @@ jobs:
       - name: Set environment variables
         run: |
           echo "GETFX_VER=$(pip show getfx | grep Version)" >> $GITHUB_ENV
-          echo "GETFX_TAG_VER=$(pip show getfx | grep Version | cut -d ' ' -f 2)" >> $GITHUB_ENV
+          echo "GETFX_SHORT_VER=$(pip show getfx | grep Version | cut -d ' ' -f 2)" >> $GITHUB_ENV
+          echo "GITHUB_TAG_VER=${GITHUB_REF#refs/tags/}" >> GITHUB_ENV"
           echo "GITHUB_SHA_SHORT=$(echo $GITHUB_SHA | cut -c 1-8)" >> $GITHUB_ENV
       - name: Verify tag is in line with GETFX version
         id: get_version
         run: |
           echo "GetFX package version ${{ env.GETFX_VER }}" 
-          echo "GetFX package tag version: ${{ env.GETFX_TAG_VER }}"
+          echo "GetFX package short version: ${{ env.GETFX_SHORT_VER }}"
+          echo "GetFX package tag version: ${{ env.GITHUB_TAG_VER }}"
       #     echo ::set-output name=VERSION1::$(echo $GITHUB_REF | cut -d / -f 3)
       #     echo ::set-output name=VERSION2::${GITHUB_REF#refs/tags/}
       #     echo ::set-output name=VERSION3::${GITHUB_REF/refs\/tags\//}
