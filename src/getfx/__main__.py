@@ -1,9 +1,9 @@
 """
 
-Invoke commandline
+Invoke command line
 ==================
 
-When `getfx` is run from commandline, it invokes FX retrieval using NBP API.
+When `getfx` is run from command line, it invokes FX retrieval using NBP API.
 
 """
 

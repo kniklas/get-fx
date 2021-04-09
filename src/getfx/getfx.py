@@ -21,7 +21,7 @@ class GetFX(object):
     """
 
     def __init__(self):
-        """Set-up protected class attributes with inital empty values."""
+        """Set-up protected class attributes with initial empty values."""
         self._currency_code = ""
         self._table_number = ""
         self._effective_date = ""
