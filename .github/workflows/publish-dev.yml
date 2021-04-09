@@ -21,7 +21,7 @@ jobs:
         uses: actions/checkout@v2
         # --- PRELIMINARY PUBLISH SECION START ---
         # TODO: candidate for writing new GitHub action!
-        # TODO: check versions depending on secret value / parameter
+        # TODO: check SRC and TAG versions depending on secret value / parameter
       - name: Set variables
         id: get_version
         run: |
