@@ -50,8 +50,7 @@ jobs:
         run: echo "Tag version1 ${{ steps.get_version.outputs.TAG_VER}}"
       - name: Verify tag and package version
         if env.GETFX_SHORT_VER != steps.get_version.outputs_TAG_VER
-        run:
-          echo "DIFFERENT TAG AND PACKAGE VERSION!"
+        run: echo "DIFFERENT TAG AND PACKAGE VERSION!"
       # - name: Publish documentation to staging ENV (${{ github.ref }})
       #   if: github.event_name == 'push' &&
       #     startsWith(github.ref, 'refs/tags/v') &&
