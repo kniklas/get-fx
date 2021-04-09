@@ -5,13 +5,13 @@ GetFX NBP API module
 
 Module implements NBP specific API to retrieve FX rates.
 
-Provides :py:func:`init_cmd()` function to parse commandline attributes and
+Provides :py:func:`init_cmd()` function to parse command line attributes and
 :py:class:`GetFxNBP` class which implements specific methods to
 retrieve FX rates.
 
 It depends on :py:mod:`~getfx.cmdparser` module which provides
 :py:const:`~getfx.cmdparser.DEFAULT_CURRENCY` and
-:py:func:`~getfx.cmdparser.parse_getfx()` method to parse commandline
+:py:func:`~getfx.cmdparser.parse_getfx()` method to parse command line
 arguments. It uses :py:const:`NBP_API_URL` which contains URL for NBP API.
 
 """
@@ -29,11 +29,11 @@ NBP_API_URL = "http://api.nbp.pl/api/exchangerates/rates/A"
 def init_cmd(test_args=None):
     """Parse command line attributes and create :py:class:`GetFxNBP` instance.
 
-    It uses :py:func:`~getfx.cmdparser.parse_getfx` to parse commandline
+    It uses :py:func:`~getfx.cmdparser.parse_getfx` to parse command line
     attributes. It creates instance of :py:class:`GetFxNBP` to
     handle request and response from NBP API.
 
-    :raises SystemExit: for incorrect commandline attributes, with following
+    :raises SystemExit: for incorrect command line attributes, with following
         exit codes:
 
         - `0` - no errors
@@ -58,7 +58,7 @@ class GetFxNBP(GetFX):
 
     It does not provide public methods, instead it is assumed when instance is
     created, NBP API is invoked and FX rate retrieved. Access to retrieved rate
-    is achieved via printing the instance using overriden: :py:meth:`.__str__`
+    is achieved via printing the instance using overridden: :py:meth:`.__str__`
     method.
     """
 
@@ -80,7 +80,7 @@ class GetFxNBP(GetFX):
         return url
 
     def _store_response(self, resp):
-        """Store reponse in instance attributes from received JSON."""
+        """Store response in instance attributes from received JSON."""
         api_resp = resp.json()['rates'][0]
         self._table_number = api_resp['no']
         self._effective_date = api_resp['effectiveDate']
