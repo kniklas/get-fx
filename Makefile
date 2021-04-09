@@ -8,6 +8,11 @@ PACKAGE_VER := $(shell cat src/getfx/__init__.py \
 	| awk -F"= " '{ print $$2 }'\
 	| sed 's/"//g')
 
+add-ver:
+	# Add version tag from package to local branch and push to remote
+	git tag v$(PACKAGE_VER)
+	git push origin --tags
+
 show-ver:
 	@echo Get FX version: $(PACKAGE_VER) 2> /dev/null
 
