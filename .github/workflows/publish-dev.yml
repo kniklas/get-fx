@@ -42,7 +42,7 @@ jobs:
       - name: Set environment variables
         run: |
           echo "GETFX_VER=$(pip show getfx | grep Version)" >> $GITHUB_ENV
-          echo "GETFX_SHORT_VER=$({{ env.GETFX_VER | cut -d ' ' -f 2}})" >> $GITHUB_ENV
+          echo "GETFX_SHORT_VER=$({{ env.GETFX_VER }} | cut -d ' ' -f 2)" >> $GITHUB_ENV
           echo "GITHUB_SHA_SHORT=$(echo $GITHUB_SHA | cut -c 1-8)" >> $GITHUB_ENV
       - name: Verify tag is in line with GETFX version
         id: get_version
