@@ -59,6 +59,7 @@ tox: python
 	pyenv local $(PYENV)
 
 # Commented as publishing preferably should be done via GitHub action
+# Additionally documentation should be published to gh-pages branch!!!
 # publish: doc
 #     @echo ===== PUBLISHING =====
 #     mkdir -pv ../$(PUBLISH_PROD_URL)
@@ -70,8 +71,11 @@ tox: python
 #         && git commit -m "Update web page for package version: $(PACKAGE_VER)" \
 #         && git push
 
-push-pypi: build
+push-pypi-test: build
 	python3 -m twine upload --repository testpypi --skip-existing dist/*
+
+push-pypi-prod: build
+	python3 -m twine upload --repository pypi --skip-existing dist/*
 
 python:
 	for i in $(VERSIONS); do \
