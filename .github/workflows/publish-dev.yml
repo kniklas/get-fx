@@ -42,7 +42,7 @@ jobs:
       - name: Set variables
         id: get_version
         run: |
-          echo $(cat src/getfx/__init__.py | grep version | awk -F"= " '{ print $2 }' | sed 's/"//g')
+          echo "GETFX_SRC_VER=v$(cat src/getfx/__init__.py | grep version | awk -F"= " '{ print $2 }' | sed 's/"//g')" >> $GITHUB_ENV
           echo ::set-output name=TAG_VER::$(echo $GITHUB_REF | cut -d / -f 3)
           echo "GETFX_VER=$(pip show getfx | grep Version)" >> $GITHUB_ENV
           echo "GETFX_SHORT_VER=v$(pip show getfx | grep Version | cut -d ' ' -f 2)" >> $GITHUB_ENV
@@ -50,7 +50,7 @@ jobs:
       - name: Show tag versions
         run: echo "Tag version1 ${{ steps.get_version.outputs.TAG_VER}}"
       - name: Verify tag and package version
-        if: env.GETFX_SHORT_VER != steps.get_version.outputs.TAG_VER
+        if: env.GETFX_SRC_VER != steps.get_version.outputs.TAG_VER
         run: echo "DIFFERENT TAG AND PACKAGE VERSION!"
       # - name: Publish documentation to staging ENV (${{ github.ref }})
       #   if: github.event_name == 'push' &&
