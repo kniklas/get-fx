@@ -35,7 +35,7 @@ setuptools.setup(
         "console_scripts": ["getfx = getfx.getfxnbp:init_cmd"]},
     project_urls={
         'Issue tracker': 'https://github.com/kniklas/get-fx/issues',
-        'Documentation': 'https://kniklas.github.io/getfx/',
+        'Documentation': 'https://kniklas.github.io/get-fx/',
         'Source': 'https://github.com/kniklas/get-fx'
     },
     classifiers=[
