@@ -53,7 +53,7 @@ jobs:
         if: env.GETFX_SRC_VER != steps.get_version.outputs.TAG_VER
         uses: actions/github-script@v3
         with:
-          script: core.setFailed('Different tag and SRC versions')
+          script: core.setFailed('Different tag and SRC versions ${{ steps.get_version.outputs.TAG_VER}} vs ${{ env.GETFX_SRC_VER}}')
         # run: echo "DIFFERENT TAG AND PACKAGE VERSION!"
       # - name: Publish documentation to staging ENV (${{ github.ref }})
       #   if: github.event_name == 'push' &&
