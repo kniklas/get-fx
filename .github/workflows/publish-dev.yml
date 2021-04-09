@@ -1,5 +1,4 @@
 # This workflow is invoked only if tag follows specific naming convention
-# TODO: consider how to use build earlier artifacts for publishing
 
 name: Publish (staging)
 
@@ -7,6 +6,8 @@ on:
   push:
     tags:
       - "v*-dev*"
+    branches-ignore:
+      - "gh-pages"
 
 jobs:
   build:
@@ -20,8 +21,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         # --- PRELIMINARY PUBLISH SECION START ---
-        # TODO: candidate for writing new GitHub action!
-        # TODO: check SRC and TAG versions depending on secret value / parameter
       - name: Set variables
         id: get_version
         run: |
