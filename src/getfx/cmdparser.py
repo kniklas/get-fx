@@ -1,9 +1,9 @@
 """
 
-Commandline parser module
-=========================
+Command line parser module
+==========================
 
-Module implements specific commandline parsing in :py:func:`parse_getfx()`
+Module implements specific command line parsing in :py:func:`parse_getfx()`
 function and defines / uses constant: :py:const:`DEFAULT_CURRENCY`.
 
 """
@@ -19,8 +19,8 @@ def parse_getfx(test_args=None):
     """ Initialize argparse parser object and return parsed arguments.
 
     :keyword test_args: used as alternative to patch ``parse_args``
-        or ``sys.argv`` for unit testing. Argment value ``None`` is used in
-        real implemenation (not unit testing).
+        or ``sys.argv`` for unit testing. Argument value ``None`` is used in
+        real implementation (not unit testing).
     :returns: ``Namespace`` object with parsed arguments, for example
 
     >>> args=['USD', '-d', '2020-10-10']
@@ -34,8 +34,8 @@ def parse_getfx(test_args=None):
     """
 
     description_string = (
-        "GetFx {}: Copyright (c) 2020".format(getfx.__version__) +
-        " Kamil Niklasiński\nProgram to display currency exchange rate.")
+        "GetFx {}: Copyright (c) 2021".format(getfx.__version__) +
+        " Kamil Niklasinski\nProgram to display currency exchange rate.")
 
     epilog_string = "Please note this program comes without any warranty!"
 
