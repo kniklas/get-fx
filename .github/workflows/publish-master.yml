@@ -52,7 +52,7 @@ jobs:
           branch: gh-pages
           folder: docs/build/html
           commit-message: "Publish ${{ env.GETFX_VER }} from @ ${{ env.GITHUB_SHA_SHORT }}"
-      - name: Publish package to test PyPi (${{ github.ref }})
+      - name: Publish package to production PyPi (${{ github.ref }})
         if: github.event_name == 'push' &&
           startsWith(github.ref, 'refs/tags/v') &&
           matrix.python-version == 3.9
