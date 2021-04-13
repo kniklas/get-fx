@@ -19,3 +19,5 @@ Modules:
 """
 
 __version__ = "0.1.4-dev1"
+#: Defines minimum Python version, re-used in `setup.py`
+__minPythonVersion__ = "3.7"

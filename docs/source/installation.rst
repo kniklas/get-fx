@@ -1,6 +1,8 @@
 Installation
 ============
-Make sure to have Python in correct version!
+Make sure to have Python in correct version - to verify minimum Python version
+check package details: https://pypi.org/project/getfx/
+
 
 MacOS and Linux
 ---------------
