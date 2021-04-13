@@ -34,7 +34,7 @@ def parse_getfx(test_args=None):
     """
 
     description_string = (
-        "GetFx {}: Copyright (c) 2020".format(getfx.__version__) +
+        "GetFx {}: Copyright (c) 2021".format(getfx.__version__) +
         " Kamil Niklasiński\nProgram to display currency exchange rate.")
 
     epilog_string = "Please note this program comes without any warranty!"
