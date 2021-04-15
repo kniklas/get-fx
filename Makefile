@@ -35,7 +35,7 @@ tests: clean
 docs: clean
 	sphinx-build -a -b html docs/source docs/build/html
 
-all: tests test-cov build
+all: install-dependencies test-cov build
 
 build: docs
 	@echo BUILDING PACKAGE
