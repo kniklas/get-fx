@@ -66,3 +66,26 @@ Or if above does not work (i.e. ``Scripts`` folder not added to system PATH:
 
 
 .. _Python: https://www.python.org/downloads/
+
+
+Troubleshooting
+---------------
+
+Proxy
+^^^^^
+If your computer is behind proxy best if you follow provided instructions: https://leifengblog.net/blog/how-to-use-pip-behind-a-proxy/
+
+Shell integration
+^^^^^^^^^^^^^^^^^
+In order to verify how GetFX is integrated with shell - i.e. where GetFX binary resides ``where`` (for Windows) or ``which`` (for MacOS/Linux):
+
+.. code-block:: bat
+
+   C:\> where getfx
+   C:\Users\U1\AppData\Local\Programs\Python\Python29\Scripts\getfx.exe
+
+.. code-block:: bash
+
+   # Below is case for GetFX installed in PyEnv virtual environment shim
+   $ which getfx
+   /Users/andromeda/.pyenv/shims/getfx
