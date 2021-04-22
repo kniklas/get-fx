@@ -1,9 +1,9 @@
 Installation
 ============
 Make sure to have Python in correct version - to verify minimum Python version
-check package details: https://pypi.org/project/getfx/
+check `GetFx package details <https://pypi.org/project/getfx/>`_ (look for *Requires* meta section).
 
-You need to install `Python <https://www.python.org/downloads/>`_ to use GetFX tool. Additionally required packages: `pip <https://pip.pypa.io/en/stable/installing/>`_ and `setuptools <https://pypi.org/project/setuptools/>`_ should be installed together as part of the Python bundle...
+You need to install `Python <https://www.python.org/downloads/>`_ to use GetFX tool. Required packages: `pip <https://pip.pypa.io/en/stable/installing/>`_ and `setuptools <https://pypi.org/project/setuptools/>`_ should be installed together as part of the Python bundle.
 
 
 MacOS and Linux
@@ -52,7 +52,7 @@ Note that above is not sufficient for setting-up development environment as the 
 
 Windows
 -------
-After you install `Python`_ it is recommended to add ``Scripts`` folder to `system PATH <https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/>`_. This is the most convenient way if you are using PyPI.
+After you install `Python`_ it is recommended to add ``C:\Users\<UserName>\AppData\Local\Programs\Python\Python39\Scripts`` folder to `system PATH <https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/>`_. This is the most convenient way if you are using PyPI.
 
 .. code-block:: bat
 
@@ -73,16 +73,18 @@ Troubleshooting
 
 Proxy
 ^^^^^
-If your computer is behind proxy best if you follow provided instructions: https://leifengblog.net/blog/how-to-use-pip-behind-a-proxy/
+If your computer is behind a proxy best if you follow provided instructions: `How to use Pip behind a proxy <https://leifengblog.net/blog/how-to-use-pip-behind-a-proxy/>`_. This should resolve problems of running ``pip`` or ``getfx`` command if your computer is behind a proxy.
 
 Shell integration
 ^^^^^^^^^^^^^^^^^
-In order to verify how GetFX is integrated with shell - i.e. where GetFX binary resides ``where`` (for Windows) or ``which`` (for MacOS/Linux):
+In order to verify how GetFX is integrated with shell - i.e. where GetFX binary resides use ``where`` command (for Windows):
 
 .. code-block:: bat
 
    C:\> where getfx
-   C:\Users\U1\AppData\Local\Programs\Python\Python29\Scripts\getfx.exe
+   C:\Users\<UserName>\AppData\Local\Programs\Python\Python29\Scripts\getfx.exe
+
+or ``which`` command (for MacOS/Linux):
 
 .. code-block:: bash
 
