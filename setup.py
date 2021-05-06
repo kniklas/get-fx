@@ -10,11 +10,12 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 # Obtain version from __init__.py
 module_file = open("src/getfx/__init__.py").read()
-metadata = dict(re.findall(r"__([a-z]+)__\s*=\s*['\"]([^'\"]*)['\"]",
+metadata = dict(re.findall(r"__([a-zA-Z]+)__\s*=\s*['\"]([^'\"]*)['\"]",
                            module_file))
 
 name = "getfx"
 version = metadata['version']
+min_python_version = metadata['minPythonVersion']
 
 setuptools.setup(
     name=name,
@@ -47,6 +48,6 @@ setuptools.setup(
         "Operating System :: OS Independent",
         "Programming Language :: Python :: 3",
     ],
-    python_requires='>=3.7',
+    python_requires='>=' + min_python_version,
     platforms='any'
 )
