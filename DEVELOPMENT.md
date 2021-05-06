@@ -3,112 +3,17 @@
 Related to setting up development environment and potential troubleshooting
 hints.
 
-## Raising issues
+If you are interested in contributing in the project please check [CONTRIBUTING.md](CONTRIBUTING.md)
 
-In general you are welcomed to raise or comment any issue. Only exception is
-for items which are more ideas that require discussion. It may happen that some
-issues will be closed or followed in discussion - especially if they are very
-tricky items for implementation or not sure if given change will be
-implemented. In case of doubt you can always raise new issue.
-
-Topics that most likely will be not converted to discussion are:
-- bugs
-- new features / enhancements
+**Note**: below instructions are valid for posix operating systems (like Linux, MacOS)
 
 
-## Branches, releasing and versions
+## Python environments (pyenv)
 
-Protected branches should not have squashed commits! Squash commits is allowed
-only on features branches.
-
-### Master (protected)
-
-Use for production releases of documentation and package.
-- 'production' version of the documentation:
-  [https://kniklas.github.io/get-fx/](https://kniklas.github.io/get-fx/)
-  (published to `gh-pages` branch of this repository)
-
-### Dev (protected)
-
-Use for staging (testing) releases of:
-- documentation:
-  [https://kniklas.github.io/pages-staging/getfx/](https://kniklas.github.io/pages-staging/getfx/)
-  (published to [documentation staging
-  repository](https://github.com/kniklas/pages-staging))
-- python package:
-  [https://test.pypi.org/project/getfx/](https://test.pypi.org/project/getfx/)
-
-### Feature branches
-
-Use for development of specific feature or fix. Each feature branch must have
-created Pull Request.
-
-**Note**: avoid feature branches with `dev` or `mas` characters in name, as
-they will be treated as protected branch!
-
-### Releasing new versions (tags)
-
-It is assumed that each new version (staging - from `dev` branch; production -
-from `master` branch) is released by pushing a tag to given commit.
-
-Depending on tag name convention, staging (`publish-dev.yml`) or production
-(`publish-master.yml`) publish workflow is invoked:
-- development versions: `v*-dev*` - for staging release - e.g. v0.1.2-dev2
-- stable versions without: `-dev` for production release - e.g. v0.1.2
-
-It is possible to push tag for code which is part of Pull Request or directly
-push to given branch. There is no verification what is name of branch where the
-tag is pushed! The only validation is to verify the tag name is the same as
-package version stored in `src/getfx/__init__.py`.
-
-#### Recommended practice
-
-1. Work always on feature branches using Pull Request
-2. Frequently push commit to feature branch - each commit is automatically
-   tested
-3. Before finishing PR and submitting for review, squach all committs using
-   GitHub _Squash and merge_ or squach all commits on feature branch locally.
-4. When work on pull request is finished, before merging it to upstream branch
-   make sure version in `src/getfx/__init__.py` is set to new version.
-5. After the pull request is merged to upstream branch push new tag which is
-   the same as package version, ideally using `make add-ver` - this rule will
-   automatically take package version to set-up local and remote tag (not
-   annotated).
-
-#### Manual publishing (using make)
-
-As alternative way to publish a package using: `make push-pypi-test` or `make
-push-pypi-prod`. This can be used if for some reason workflow actions should
-not be used or they are not working correctly. In such case please remember to
-apply version tag to commit which is used for new version.
-
-In order to perform manual publishing you need to have valid pypi API tokens
-stored in `~/.pypirc` configuration file.
-
-
-## Building
-
-This project assumes you have installed `make` on your operating system. If you
-wish to use different building tool please do this on your fork and do not
-merge to upstream unless agreed with project owner. Please note `make` rules
-are used not only a handy tool during development to automate building,
-cleanup, testing but as well by GitHub Actions workflows.
-
-
-## Commits
-
-1. Ideally use short / atomic commits for specific feature
-2. Follow [50/72 rule](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html) for writing commits
-3. You can invoke `make build` or `make docs` locally in case of doubt or if
-   local troubleshooting is required.
-
-
-## pyenv
-
-You can use different python versions / packages manager, but then **tox
-related matrix testing** will not work out of box (as currently implemented in
-`Makefile`). In such case you would have to write your own makefile rules or
-use different building tool.
+You can use different python versions / packages manager than `pyenv`, but then
+**tox related matrix testing** will not work out of box (as currently
+implemented in `Makefile`). In such case you would have to write your own
+makefile rules or use different building tool.
 
 Install [pyenv](https://github.com/pyenv/pyenv).
 
@@ -120,7 +25,7 @@ versions? Check `tox.ini` and `Makefile`):
   Note installation might take a while
 
 Now you need to create virtual environment with specific python version.
-Ideally install [pyenv-virtualenv](https://github.com/pyenv/pyenv-virtualenv)
+deally install [pyenv-virtualenv](https://github.com/pyenv/pyenv-virtualenv)
 and then create virutal environment using specific python version:
 * `pyenv virtualenv <python version> <name of environment>` - create virtual
   environment for specific python version available in pyenv
