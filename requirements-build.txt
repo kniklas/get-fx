@@ -1,2 +1,2 @@
-requests
-sphinx
+requests==2.25.1
+Sphinx==3.5.4

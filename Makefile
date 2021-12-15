@@ -79,7 +79,7 @@ push-pypi-prod: build
 
 python:
 	for i in $(VERSIONS); do \
-		pyenv install -s $i; \
+		pyenv install -s $$i; \
 	done
 
 clean:
