@@ -1,6 +1,6 @@
-coverage
-coveralls
-pytest
-flake8
-tox
-tox-pyenv
+coverage==5.5
+coveralls==3.0.1
+pytest==6.2.3
+flake8==3.9.0
+tox==3.23.0
+tox-pyenv==1.1.0
