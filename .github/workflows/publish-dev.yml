@@ -6,8 +6,8 @@ on:
   push:
     tags:
       - "v*-dev*"
-    branches-ignore:
-      - "gh-pages"
+    # branches-ignore:
+    #   - "gh-pages"
 
 jobs:
   build:
