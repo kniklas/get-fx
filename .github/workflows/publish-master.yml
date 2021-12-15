@@ -30,7 +30,7 @@ jobs:
           echo "GITHUB_SHA_SHORT=$(echo $GITHUB_SHA | cut -c 1-8)" >> $GITHUB_ENV
       - name: Fail if SRC and GIT TAG versions are different
         if: env.GETFX_SRC_VER != steps.get_version.outputs.TAG_VER
-        uses: actions/github-script@v3
+        uses: actions/github-script@v5
         with:
           script: core.setFailed('Different tag and SRC versions ${{ steps.get_version.outputs.TAG_VER}} vs ${{ env.GETFX_SRC_VER}}')
         # --- PRELIMINARY PUBLISH SECION END ---
