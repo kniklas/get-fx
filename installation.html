@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Installation &#8212; GetFX  documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
@@ -33,22 +32,80 @@
 
           <div class="body" role="main">
             
-  <section id="installation">
+  <div class="section" id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
-<p>Make sure to have Python in correct version!</p>
-<section id="macos-and-linux">
+<p>Make sure to have Python in correct version - to verify minimum Python version
+check <a class="reference external" href="https://pypi.org/project/getfx/">GetFx package details</a> (look for <em>Requires</em> meta section).</p>
+<p>You need to install <a class="reference external" href="https://www.python.org/downloads/">Python</a> to use GetFX tool. Required packages: <a class="reference external" href="https://pip.pypa.io/en/stable/installing/">pip</a> and <a class="reference external" href="https://pypi.org/project/setuptools/">setuptools</a> should be installed together as part of the Python bundle.</p>
+<div class="section" id="macos-and-linux">
 <h2>MacOS and Linux<a class="headerlink" href="#macos-and-linux" title="Permalink to this headline">¶</a></h2>
-<p>Get pre-requisites</p>
-<p>PyPI: The easiest and most convenient way.</p>
-<p>Install from source</p>
-</section>
-<section id="windows">
+<p>Install GetFX using pip:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip install getfx
+<span class="c1"># or</span>
+$ python3 -m pip install getfx
+</pre></div>
+</div>
+<div class="section" id="install-from-source">
+<h3>Install from source<a class="headerlink" href="#install-from-source" title="Permalink to this headline">¶</a></h3>
+<p>Before installation from source make sure you have installed <code class="docutils literal notranslate"><span class="pre">make</span></code> in your operating system</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># For Debian/Ubuntu</span>
+$ sudo apt-get update
+$ sudo apt-get install make
+
+<span class="c1"># For MacOS</span>
+$ brew install make
+
+<span class="c1"># Or if you need more developer tools for MacOS</span>
+$ xcode-select --install
+</pre></div>
+</div>
+<p>Then proceed with downloading repository and building GetFX package from the source:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Download the repository</span>
+$ git clone git@github.com:kniklas/get-fx.git
+
+<span class="c1"># Install dependencies, build and run tests</span>
+$ make all
+
+<span class="c1"># Execute locally build python package (display help)</span>
+$ getfx -h
+</pre></div>
+</div>
+<p>Note that above is not sufficient for setting-up development environment as the source <a class="reference external" href="https://github.com/kniklas/get-fx/blob/master/Makefile">Makefile</a> requires <a class="reference external" href="https://github.com/pyenv/pyenv">pyenv</a> and <a class="reference external" href="https://github.com/pyenv/pyenv-virtualenv">pyenv-virtualenv</a>. How to set development environment see <a class="reference external" href="https://github.com/kniklas/get-fx/blob/master/DEVELOPMENT.md">DEVELOPMENT.md</a>.</p>
+</div>
+</div>
+<div class="section" id="windows">
 <h2>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h2>
-<p>Get pre-requisites</p>
-<p>PyPI: The easiest and most convenient way.</p>
-<p>Install from source</p>
-</section>
-</section>
+<p>After you install <a class="reference external" href="https://www.python.org/downloads/">Python</a> it is recommended to add <code class="docutils literal notranslate"><span class="pre">C:\Users\&lt;UserName&gt;\AppData\Local\Programs\Python\Python39\Scripts</span></code> folder to <a class="reference external" href="https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/">system PATH</a>. This is the most convenient way if you are using PyPI.</p>
+<div class="highlight-bat notranslate"><div class="highlight"><pre><span></span>C<span class="p">:</span><span class="nl">\</span><span class="c1">&gt; pip install getfx</span>
+</pre></div>
+</div>
+<p>Or if above does not work (i.e. <code class="docutils literal notranslate"><span class="pre">Scripts</span></code> folder not added to system PATH:</p>
+<div class="highlight-bat notranslate"><div class="highlight"><pre><span></span>C<span class="p">:</span><span class="nl">\</span><span class="c1">&gt; py -m pip getfx</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="proxy">
+<h3>Proxy<a class="headerlink" href="#proxy" title="Permalink to this headline">¶</a></h3>
+<p>If your computer is behind a proxy best if you follow provided instructions: <a class="reference external" href="https://leifengblog.net/blog/how-to-use-pip-behind-a-proxy/">How to use Pip behind a proxy</a>. This should resolve problems of running <code class="docutils literal notranslate"><span class="pre">pip</span></code> or <code class="docutils literal notranslate"><span class="pre">getfx</span></code> command if your computer is behind a proxy.</p>
+</div>
+<div class="section" id="shell-integration">
+<h3>Shell integration<a class="headerlink" href="#shell-integration" title="Permalink to this headline">¶</a></h3>
+<p>In order to verify how GetFX is integrated with shell - i.e. where GetFX binary resides use <code class="docutils literal notranslate"><span class="pre">where</span></code> command (for Windows):</p>
+<div class="highlight-bat notranslate"><div class="highlight"><pre><span></span>C<span class="p">:</span><span class="nl">\</span><span class="c1">&gt; where getfx</span>
+C<span class="p">:</span><span class="nl">\Users\</span><span class="c1">&lt;UserName&gt;\AppData\Local\Programs\Python\Python29\Scripts\getfx.exe</span>
+</pre></div>
+</div>
+<p>or <code class="docutils literal notranslate"><span class="pre">which</span></code> command (for MacOS/Linux):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Below is case for GetFX installed in PyEnv virtual environment shim</span>
+$ which getfx
+/Users/andromeda/.pyenv/shims/getfx
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 
 
           </div>
@@ -71,6 +128,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#macos-and-linux">MacOS and Linux</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#windows">Windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
@@ -112,7 +170,7 @@
       &copy;2021, Kamil Niklasinski.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.3</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GetFX NBP API module &#8212; GetFX  documentation</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
@@ -15,7 +14,7 @@
     <script src="../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Commandline parser module" href="cmdparser.html" />
+    <link rel="next" title="Command line parser module" href="cmdparser.html" />
     <link rel="prev" title="GetFX base module" href="getfx.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -33,15 +32,15 @@
 
           <div class="body" role="main">
             
-  <span class="target" id="module-getfx.getfxnbp"></span><section id="getfx-nbp-api-module">
+  <span class="target" id="module-getfx.getfxnbp"></span><div class="section" id="getfx-nbp-api-module">
 <h1>GetFX NBP API module<a class="headerlink" href="#getfx-nbp-api-module" title="Permalink to this headline">¶</a></h1>
 <p>Module implements NBP specific API to retrieve FX rates.</p>
-<p>Provides <a class="reference internal" href="#getfx.getfxnbp.init_cmd" title="getfx.getfxnbp.init_cmd"><code class="xref py py-func docutils literal notranslate"><span class="pre">init_cmd()</span></code></a> function to parse commandline attributes and
+<p>Provides <a class="reference internal" href="#getfx.getfxnbp.init_cmd" title="getfx.getfxnbp.init_cmd"><code class="xref py py-func docutils literal notranslate"><span class="pre">init_cmd()</span></code></a> function to parse command line attributes and
 <a class="reference internal" href="#getfx.getfxnbp.GetFxNBP" title="getfx.getfxnbp.GetFxNBP"><code class="xref py py-class docutils literal notranslate"><span class="pre">GetFxNBP</span></code></a> class which implements specific methods to
 retrieve FX rates.</p>
 <p>It depends on <a class="reference internal" href="cmdparser.html#module-getfx.cmdparser" title="getfx.cmdparser"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cmdparser</span></code></a> module which provides
 <a class="reference internal" href="cmdparser.html#getfx.cmdparser.DEFAULT_CURRENCY" title="getfx.cmdparser.DEFAULT_CURRENCY"><code class="xref py py-const docutils literal notranslate"><span class="pre">DEFAULT_CURRENCY</span></code></a> and
-<a class="reference internal" href="cmdparser.html#getfx.cmdparser.parse_getfx" title="getfx.cmdparser.parse_getfx"><code class="xref py py-func docutils literal notranslate"><span class="pre">parse_getfx()</span></code></a> method to parse commandline
+<a class="reference internal" href="cmdparser.html#getfx.cmdparser.parse_getfx" title="getfx.cmdparser.parse_getfx"><code class="xref py py-func docutils literal notranslate"><span class="pre">parse_getfx()</span></code></a> method to parse command line
 arguments. It uses <a class="reference internal" href="#getfx.getfxnbp.NBP_API_URL" title="getfx.getfxnbp.NBP_API_URL"><code class="xref py py-const docutils literal notranslate"><span class="pre">NBP_API_URL</span></code></a> which contains URL for NBP API.</p>
 <dl class="py data">
 <dt id="getfx.getfxnbp.NBP_API_URL">
@@ -53,12 +52,12 @@ arguments. It uses <a class="reference internal" href="#getfx.getfxnbp.NBP_API_U
 <dt id="getfx.getfxnbp.init_cmd">
 <code class="sig-prename descclassname"><span class="pre">getfx.getfxnbp.</span></code><code class="sig-name descname"><span class="pre">init_cmd</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">test_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#getfx.getfxnbp.init_cmd" title="Permalink to this definition">¶</a></dt>
 <dd><p>Parse command line attributes and create <a class="reference internal" href="#getfx.getfxnbp.GetFxNBP" title="getfx.getfxnbp.GetFxNBP"><code class="xref py py-class docutils literal notranslate"><span class="pre">GetFxNBP</span></code></a> instance.</p>
-<p>It uses <a class="reference internal" href="cmdparser.html#getfx.cmdparser.parse_getfx" title="getfx.cmdparser.parse_getfx"><code class="xref py py-func docutils literal notranslate"><span class="pre">parse_getfx()</span></code></a> to parse commandline
+<p>It uses <a class="reference internal" href="cmdparser.html#getfx.cmdparser.parse_getfx" title="getfx.cmdparser.parse_getfx"><code class="xref py py-func docutils literal notranslate"><span class="pre">parse_getfx()</span></code></a> to parse command line
 attributes. It creates instance of <a class="reference internal" href="#getfx.getfxnbp.GetFxNBP" title="getfx.getfxnbp.GetFxNBP"><code class="xref py py-class docutils literal notranslate"><span class="pre">GetFxNBP</span></code></a> to
 handle request and response from NBP API.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Raises</dt>
-<dd class="field-odd"><p><strong>SystemExit</strong> – <p>for incorrect commandline attributes, with following
+<dd class="field-odd"><p><strong>SystemExit</strong> – <p>for incorrect command line attributes, with following
 exit codes:</p>
 <ul class="simple">
 <li><p><cite>0</cite> - no errors</p></li>
@@ -70,7 +69,7 @@ exit codes:</p>
 </dl>
 </dd></dl>
 
-</section>
+</div>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
@@ -81,7 +80,7 @@ exit codes:</p>
 specific FX retrieval logic.</p>
 <p>It does not provide public methods, instead it is assumed when instance is
 created, NBP API is invoked and FX rate retrieved. Access to retrieved rate
-is achieved via printing the instance using overriden: <a class="reference internal" href="#getfx.getfxnbp.GetFxNBP.__str__" title="getfx.getfxnbp.GetFxNBP.__str__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__str__()</span></code></a>
+is achieved via printing the instance using overridden: <a class="reference internal" href="#getfx.getfxnbp.GetFxNBP.__str__" title="getfx.getfxnbp.GetFxNBP.__str__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__str__()</span></code></a>
 method.</p>
 <dl class="py method">
 <dt id="getfx.getfxnbp.GetFxNBP.__str__">
@@ -131,7 +130,7 @@ connection</p></li>
 <li class="toctree-l2"><a class="reference internal" href="package.html">GetFX package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="getfx.html">GetFX base module</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">GetFX NBP API module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cmdparser.html">Commandline parser module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cmdparser.html">Command line parser module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#indices-and-tables">Indices and tables</a></li>
 </ul>
 </li>
@@ -143,7 +142,7 @@ connection</p></li>
   <li><a href="../index.html">Documentation overview</a><ul>
   <li><a href="index.html">Source documentation</a><ul>
       <li>Previous: <a href="getfx.html" title="previous chapter">GetFX base module</a></li>
-      <li>Next: <a href="cmdparser.html" title="next chapter">Commandline parser module</a></li>
+      <li>Next: <a href="cmdparser.html" title="next chapter">Command line parser module</a></li>
   </ul></li>
   </ul></li>
 </ul>
@@ -174,7 +173,7 @@ connection</p></li>
       &copy;2021, Kamil Niklasinski.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.3</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

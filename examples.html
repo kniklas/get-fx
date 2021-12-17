@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Examples &#8212; GetFX  documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
@@ -33,13 +32,15 @@
 
           <div class="body" role="main">
             
-  <section id="examples">
+  <div class="section" id="examples">
 <h1>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="typical-use-cases">
+<h2>Typical use cases<a class="headerlink" href="#typical-use-cases" title="Permalink to this headline">¶</a></h2>
 <p>You can use the package from command line (example using Linux or MacOS):</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">getfx</span></code> - will return today FX from default currency (CHF)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">getfx</span> <span class="pre">USD</span></code> - will return today FX for USD</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">getfx</span> <span class="pre">USD</span> <span class="pre">-d</span> <span class="pre">2020-10-03</span></code> - will return USD FX on 3th October 2020</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">getfx</span> <span class="pre">USD</span> <span class="pre">-d</span> <span class="pre">2020-10-03</span></code> - will return USD FX on 3rd October 2020</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">getfx</span> <span class="pre">-h</span></code> - display help</p></li>
 </ul>
 <p>Eventually you can run package using <code class="docutils literal notranslate"><span class="pre">python3</span></code> command:</p>
@@ -47,7 +48,12 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">getfx</span></code> - same as first example above</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">getfx</span> <span class="pre">USD</span></code> - same as second example above</p></li>
 </ul>
-</section>
+</div>
+<div class="section" id="using-getfx-behind-proxy">
+<h2>Using GetFX behind proxy<a class="headerlink" href="#using-getfx-behind-proxy" title="Permalink to this headline">¶</a></h2>
+<p>It is preferred to follow the same instructions as for <a class="reference external" href="https://leifengblog.net/blog/how-to-use-pip-behind-a-proxy/">How to use pip behind a proxy</a>. GetFX uses <code class="docutils literal notranslate"><span class="pre">http_proxy</span></code> system variable.</p>
+</div>
+</div>
 
 
           </div>
@@ -68,7 +74,11 @@
 <h3>Navigation</h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Examples</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#typical-use-cases">Typical use cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-getfx-behind-proxy">Using GetFX behind proxy</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="implementation/index.html">Source documentation</a></li>
 </ul>
 
@@ -107,7 +117,7 @@
       &copy;2021, Kamil Niklasinski.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.3</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
