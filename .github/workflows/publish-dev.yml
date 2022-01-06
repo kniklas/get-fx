@@ -55,7 +55,7 @@ jobs:
         if: github.event_name == 'push' &&
           startsWith(github.ref, 'refs/tags/v') &&
           matrix.python-version == 3.9
-        uses: JamesIves/github-pages-deploy-action@4.1.8
+        uses: JamesIves/github-pages-deploy-action@4.1.9
         with:
           repository-name: kniklas/pages-staging
           token: ${{ secrets.STAGING_PUBLISH_TOKEN }}
