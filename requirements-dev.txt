@@ -2,5 +2,5 @@ entry-point-inspector==0.2.1
 wdb==3.3.0
 wdb.server==3.3.0
 pytest-watch==4.2.0
-ipython==7.22.0
+ipython==7.31.1
 twine==3.4.1
