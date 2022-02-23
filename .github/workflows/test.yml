@@ -1,7 +1,7 @@
 ---
 
 name: Test Coveralls
-on:  # yamllint disable-line rule:truthy
+on:
   push:
     branches: [master]
   pull_request:

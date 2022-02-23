@@ -3,7 +3,7 @@
 
 name: Publish (staging)
 
-on:  # yamllint disable-line rule:truthy
+on:
   push:
     tags:
       - "v*-dev*"
