@@ -31,8 +31,8 @@ Examples what are valid issues (not discussion items):
 
 ## Branches, releasing and versions
 
-Protected branches should not have squashed commits! Squash commits are allowed
-only on feature branches.
+Do not squash commits on protected branches!
+Squash commits are allowed only on feature/pull request branches.
 
 ### Master (protected)
 
@@ -42,23 +42,21 @@ Use for production releases of documentation and package.
   (published to `gh-pages` branch of this repository)
 - python package: [https://pypi.org/project/getfx/](https://pypi.org/project/getfx/)
 
-### Dev (protected)
+### Feature branches (not protected)
+
+Use for development of specific feature or fix. Each feature branch must have
+created Pull Request.
+
+**Note**: avoid feature branches with `mas` characters in name,
+otherwise they will be treated as protected branch!
 
 Use for staging (testing) releases of:
 - documentation:
   [https://kniklas.github.io/pages-staging/getfx/](https://kniklas.github.io/pages-staging/getfx/)
   (published to [documentation staging
   repository](https://github.com/kniklas/pages-staging))
-- python package:
+- test python package:
   [https://test.pypi.org/project/getfx/](https://test.pypi.org/project/getfx/)
-
-### Feature branches
-
-Use for development of specific feature or fix. Each feature branch must have
-created Pull Request.
-
-**Note**: avoid feature branches with `dev` or `mas` characters in name, otherwise
-they will be treated as protected branch!
 
 ### Pull requests
 
@@ -74,8 +72,8 @@ criteria will be rejected.
 
 ### Releasing new versions (tags)
 
-It is assumed that each new version (staging - from `dev` branch; production -
-from `master` branch) is released by pushing a tag to given commit.
+It is assumed that each new version is released by pushing a tag to given
+commit.
 
 Depending on tag name convention, staging (`publish-dev.yml`) or production
 (`publish-master.yml`) publish workflow is invoked:
@@ -96,7 +94,7 @@ package version stored in `src/getfx/__init__.py`.
    GitHub _Squash and merge_ or squash all commits on feature branch locally
    and force push to remote.
 4. When work on pull request is finished, before merging it to upstream branch
-   make sure version in `src/getfx/__init__.py` is set to new version.
+   make sure version in `src/getfx/__init__.py` is set to a new version.
 5. After the pull request is merged to upstream branch push new tag which is
    the same as package version, ideally using `make add-ver` - this rule will
    automatically take package version to set-up local and remote tag (not
