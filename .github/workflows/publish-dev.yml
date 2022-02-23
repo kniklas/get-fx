@@ -24,7 +24,8 @@ jobs:
         id: get_version
         run: |
           echo ::set-output name=TAG_VER::$(echo $GITHUB_REF | cut -d / -f 3)
-          echo "GETFX_SRC_VER=v$(cat src/getfx/__init__.py | grep version | awk -F"= " '{ print $2 }' | sed 's/"//g')" >> $GITHUB_ENV
+          echo "GETFX_SRC_VER=v$(cat src/getfx/__init__.py | grep version | \
+                awk -F"= " '{ print $2 }' | sed 's/"//g')" >> $GITHUB_ENV
           echo "GITHUB_SHA_SHORT=$(echo $GITHUB_SHA | cut -c 1-8)" >> $GITHUB_ENV
       - name: Fail if SRC and GIT TAG versions are different
         if: env.GETFX_SRC_VER != steps.get_version.outputs.TAG_VER
