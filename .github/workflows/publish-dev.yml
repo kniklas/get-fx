@@ -1,8 +1,9 @@
+---
 # This workflow is invoked only if tag follows specific naming convention
 
 name: Publish (staging)
 
-on:
+on:  # yamllint disable-line rule:truthy
   push:
     tags:
       - "v*-dev*"
@@ -30,7 +31,7 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: core.setFailed('Different tag and SRC versions ${{ steps.get_version.outputs.TAG_VER}} vs ${{ env.GETFX_SRC_VER}}')
-        # --- PRELIMINARY PUBLISH SECION END ---
+      # --- PRELIMINARY PUBLISH SECION END ---
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v2
         with:
@@ -38,8 +39,12 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          if [ -f requirements-test.txt ]; then pip install -r requirements-test.txt; fi
-          if [ -f requirements-build.txt ]; then pip install -r requirements-build.txt; fi
+          if [ -f requirements-test.txt ]
+            then pip install -r requirements-test.txt
+          fi
+          if [ -f requirements-build.txt ]
+            then pip install -r requirements-build.txt
+          fi
       - name: Lint with flake8
         run: |
           flake8 . --count --show-source --statistics
