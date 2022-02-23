@@ -67,7 +67,8 @@ jobs:
           target-folder: getfx
           branch: main
           folder: docs/build/html
-          commit-message: "Publish ${{ env.GETFX_SRC_VER }} from @ ${{ env.GITHUB_SHA_SHORT }}"
+          commit-message: "Publish ${{ env.GETFX_SRC_VER }} from @
+            ${{ env.GITHUB_SHA_SHORT }}"
       - name: Publish package to test PyPi (${{ github.ref }})
         if: github.event_name == 'push' &&
           startsWith(github.ref, 'refs/tags/v') &&
