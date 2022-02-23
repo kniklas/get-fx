@@ -30,7 +30,8 @@ jobs:
         if: env.GETFX_SRC_VER != steps.get_version.outputs.TAG_VER
         uses: actions/github-script@v6
         with:
-          script: core.setFailed('Different tag and SRC versions ${{ steps.get_version.outputs.TAG_VER}} vs ${{ env.GETFX_SRC_VER}}')
+          script: core.setFailed('Different tag and SRC versions
+            ${{ steps.get_version.outputs.TAG_VER}} vs ${{ env.GETFX_SRC_VER}}')
       # --- PRELIMINARY PUBLISH SECION END ---
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v2
