@@ -48,7 +48,7 @@ def init_cmd(test_args=None):
         print(getfx)
         sys.exit(0)
     except ValueError:
-        print("Wrong currency or date. Use \'-h\' option to display help.")
+        print("Wrong currency or date. Use '-h' option to display help.")
         raise SystemExit(2)
 
 
@@ -74,18 +74,18 @@ class GetFxNBP(GetFX):
     def _get_request_url(self, currency, date):
         """Return request URL for NBP API."""
         if date:
-            url = '/'.join([NBP_API_URL, currency, date])
+            url = "/".join([NBP_API_URL, currency, date])
         else:
-            url = '/'.join([NBP_API_URL, currency])
+            url = "/".join([NBP_API_URL, currency])
         return url
 
     def _store_response(self, resp):
         """Store response in instance attributes from received JSON."""
-        api_resp = resp.json()['rates'][0]
-        self._table_number = api_resp['no']
-        self._effective_date = api_resp['effectiveDate']
-        self._rate = api_resp['mid']
-        self._currency_code = resp.json()['code']
+        api_resp = resp.json()["rates"][0]
+        self._table_number = api_resp["no"]
+        self._effective_date = api_resp["effectiveDate"]
+        self._rate = api_resp["mid"]
+        self._currency_code = resp.json()["code"]
 
     def _get_response(self, currency, date=None):
         """Receive JSON response from FX provider.
@@ -103,5 +103,8 @@ class GetFxNBP(GetFX):
             sys.exit(1)
         else:
             if resp.status_code == 404:
-                raise ValueError("Incorrect currency code: {} or date: {}"
-                                 .format(currency, date))
+                raise ValueError(
+                    "Incorrect currency code: {} or date: {}".format(
+                        currency, date
+                    )
+                )
