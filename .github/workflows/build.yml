@@ -42,7 +42,7 @@ jobs:
           fi
       - name: Lint YML files
         run: |
-	  find . -name "*.yml" | xargs python -m yamllint
+          find . -name "*.yml" | xargs python -m yamllint
       - name: Lint with flake8
         run: |
           flake8 . --count --show-source --statistics
