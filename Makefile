@@ -28,9 +28,12 @@ test-cov:
 test-cov-pub: test-cov
 	coveralls
 
-tests: clean
+tests: clean lint
 	pytest
+
+lint:
 	flake8 .
+	find . -name "*.yml" | xargs python -m yamllint
 
 docs: clean
 	sphinx-build -a -b html docs/source docs/build/html

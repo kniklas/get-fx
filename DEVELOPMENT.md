@@ -97,11 +97,11 @@ If you wish to remove all packages, use: `pip freeze | xargs pip uninstall -y`
 [stack overflow](https://stackoverflow.com/a/11250821)
 
 
-## Testing
+## Testing and linting
 
 In order to test if tool works correctly from command line use command: `make
 tests`, it will invoke three requests to NBP API with various command line
-attributes.
+attributes. `make tests` invokes `make lint` to perform linting verification.
 
 Unit tests should be executed using `pytest` command, or checked constantly
 during development using `ptw` (pytest watch).
@@ -111,7 +111,6 @@ during development using `ptw` (pytest watch).
 Do not use `tox` command as you may get failure that given python version is
 missing. In order to perform testing on multiple python versions use `make tox`
 instead.
-
 
 ### Testing using multiple Python versions
 
