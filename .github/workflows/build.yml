@@ -4,9 +4,9 @@ name: build
 
 on:
   push:
-    branches: [master, dev]
+    branches: [master]
   pull_request:
-    branches: [master, dev]
+    branches: [master]
 
 
 jobs:
@@ -40,6 +40,9 @@ jobs:
           if [ -f requirements-build.txt ]
             then pip install -r requirements-build.txt
           fi
+      - name: Lint YML files
+        run: |
+	  find . -name "*.yml" | xargs python -m yamllint
       - name: Lint with flake8
         run: |
           flake8 . --count --show-source --statistics
