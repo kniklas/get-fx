@@ -52,6 +52,9 @@ jobs:
         run: |
           flake8 . --count --show-source --statistics
           flake8 . --count --max-complexity=10 --max-line-length=80 --statistics
+      - name: Lint YML files
+        run: |
+          find . -name "*.yml" | xargs python -m yamllint
       - name: Test with pytest
         run: |
           pytest
