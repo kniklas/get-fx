@@ -12,6 +12,8 @@ MacOS)
 
 ## Python environments (`pyenv`)
 
+**IMPORTANT** make sure that `.python-version` file uses name of the virtual environment you created (e.g. `get-fx-venv`), if this file has for example values: `3.7.3 3.8.5 3.9.0` then during invoking `make tox` you might get errors that some python versions (3.7 or 3.9) are not found!
+
 You can use different python versions / packages manager than `pyenv`, but then
 **tox matrix testing** will not work out of box (as currently implemented in
 `Makefile`). In such case you would have to write your own `Makefile` rules or
