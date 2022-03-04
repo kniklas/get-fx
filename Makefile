@@ -33,6 +33,7 @@ tests: clean lint
 
 lint:
 	flake8 .
+	black . -l 79 --check
 	find . -name "*.yml" | xargs python -m yamllint
 
 docs: clean

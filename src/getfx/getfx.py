@@ -42,5 +42,8 @@ class GetFX(object):
 
         return "Currency\t: {}\nTable number\t: {} \
                 \nDate\t\t: {}\nFX rate\t\t: {}".format(
-                    self._currency_code, self._table_number,
-                    self._effective_date, self._rate)
+            self._currency_code,
+            self._table_number,
+            self._effective_date,
+            self._rate,
+        )

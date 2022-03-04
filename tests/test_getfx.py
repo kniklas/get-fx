@@ -2,7 +2,7 @@ import pytest
 from getfx.getfx import GetFX
 
 
-@pytest.fixture(name='getfx2')
+@pytest.fixture(name="getfx2")
 def fixture_getfx():
     getfx = GetFX()
     yield getfx
