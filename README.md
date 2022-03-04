@@ -10,6 +10,8 @@ GetFX is a tool to download average FX rates from National Bank of Poland
 
 # Installation
 
+If you have already installed Python, then simply use `pip install getfx` to install the package.
+
 Prerequisites to install GetFX:
 * [pip](https://pip.pypa.io/en/stable/installing/) 
 * [setuptools](https://pypi.org/project/setuptools/)
