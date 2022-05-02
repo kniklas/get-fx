@@ -4,11 +4,12 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>GetFX NBP API module &#8212; GetFX  documentation</title>
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -32,7 +33,7 @@
 
           <div class="body" role="main">
             
-  <span class="target" id="module-getfx.getfxnbp"></span><div class="section" id="getfx-nbp-api-module">
+  <span class="target" id="module-getfx.getfxnbp"></span><section id="getfx-nbp-api-module">
 <h1>GetFX NBP API module<a class="headerlink" href="#getfx-nbp-api-module" title="Permalink to this headline">¶</a></h1>
 <p>Module implements NBP specific API to retrieve FX rates.</p>
 <p>Provides <a class="reference internal" href="#getfx.getfxnbp.init_cmd" title="getfx.getfxnbp.init_cmd"><code class="xref py py-func docutils literal notranslate"><span class="pre">init_cmd()</span></code></a> function to parse command line attributes and
@@ -43,14 +44,14 @@ retrieve FX rates.</p>
 <a class="reference internal" href="cmdparser.html#getfx.cmdparser.parse_getfx" title="getfx.cmdparser.parse_getfx"><code class="xref py py-func docutils literal notranslate"><span class="pre">parse_getfx()</span></code></a> method to parse command line
 arguments. It uses <a class="reference internal" href="#getfx.getfxnbp.NBP_API_URL" title="getfx.getfxnbp.NBP_API_URL"><code class="xref py py-const docutils literal notranslate"><span class="pre">NBP_API_URL</span></code></a> which contains URL for NBP API.</p>
 <dl class="py data">
-<dt id="getfx.getfxnbp.NBP_API_URL">
-<code class="sig-prename descclassname"><span class="pre">getfx.getfxnbp.</span></code><code class="sig-name descname"><span class="pre">NBP_API_URL</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'http://api.nbp.pl/api/exchangerates/rates/A'</span></em><a class="headerlink" href="#getfx.getfxnbp.NBP_API_URL" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="getfx.getfxnbp.NBP_API_URL">
+<span class="sig-prename descclassname"><span class="pre">getfx.getfxnbp.</span></span><span class="sig-name descname"><span class="pre">NBP_API_URL</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'http://api.nbp.pl/api/exchangerates/rates/A'</span></em><a class="headerlink" href="#getfx.getfxnbp.NBP_API_URL" title="Permalink to this definition">¶</a></dt>
 <dd><p>Defines NBP API URL used for requests</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="getfx.getfxnbp.init_cmd">
-<code class="sig-prename descclassname"><span class="pre">getfx.getfxnbp.</span></code><code class="sig-name descname"><span class="pre">init_cmd</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">test_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#getfx.getfxnbp.init_cmd" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="getfx.getfxnbp.init_cmd">
+<span class="sig-prename descclassname"><span class="pre">getfx.getfxnbp.</span></span><span class="sig-name descname"><span class="pre">init_cmd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">test_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#getfx.getfxnbp.init_cmd" title="Permalink to this definition">¶</a></dt>
 <dd><p>Parse command line attributes and create <a class="reference internal" href="#getfx.getfxnbp.GetFxNBP" title="getfx.getfxnbp.GetFxNBP"><code class="xref py py-class docutils literal notranslate"><span class="pre">GetFxNBP</span></code></a> instance.</p>
 <p>It uses <a class="reference internal" href="cmdparser.html#getfx.cmdparser.parse_getfx" title="getfx.cmdparser.parse_getfx"><code class="xref py py-func docutils literal notranslate"><span class="pre">parse_getfx()</span></code></a> to parse command line
 attributes. It creates instance of <a class="reference internal" href="#getfx.getfxnbp.GetFxNBP" title="getfx.getfxnbp.GetFxNBP"><code class="xref py py-class docutils literal notranslate"><span class="pre">GetFxNBP</span></code></a> to
@@ -69,13 +70,13 @@ exit codes:</p>
 </dl>
 </dd></dl>
 
-</div>
+</section>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
 <dl class="py class">
-<dt id="getfx.getfxnbp.GetFxNBP">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">getfx.getfxnbp.</span></code><code class="sig-name descname"><span class="pre">GetFxNBP</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">currency</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'CHF'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#getfx.getfxnbp.GetFxNBP" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="getfx.getfxnbp.GetFxNBP">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">getfx.getfxnbp.</span></span><span class="sig-name descname"><span class="pre">GetFxNBP</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">currency</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'CHF'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#getfx.getfxnbp.GetFxNBP" title="Permalink to this definition">¶</a></dt>
 <dd><p>Subclass of <a class="reference internal" href="getfx.html#getfx.getfx.GetFX" title="getfx.getfx.GetFX"><code class="xref py py-class docutils literal notranslate"><span class="pre">GetFX</span></code></a> class to implement NBP
 specific FX retrieval logic.</p>
 <p>It does not provide public methods, instead it is assumed when instance is
@@ -83,14 +84,14 @@ created, NBP API is invoked and FX rate retrieved. Access to retrieved rate
 is achieved via printing the instance using overridden: <a class="reference internal" href="#getfx.getfxnbp.GetFxNBP.__str__" title="getfx.getfxnbp.GetFxNBP.__str__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__str__()</span></code></a>
 method.</p>
 <dl class="py method">
-<dt id="getfx.getfxnbp.GetFxNBP.__str__">
-<code class="sig-name descname"><span class="pre">__str__</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#getfx.getfxnbp.GetFxNBP.__str__" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="getfx.getfxnbp.GetFxNBP.__str__">
+<span class="sig-name descname"><span class="pre">__str__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#getfx.getfxnbp.GetFxNBP.__str__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return formatted string to display currency rate information.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="getfx.getfxnbp.GetFxNBP._get_response">
-<code class="sig-name descname"><span class="pre">_get_response</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">currency</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#getfx.getfxnbp.GetFxNBP._get_response" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="getfx.getfxnbp.GetFxNBP._get_response">
+<span class="sig-name descname"><span class="pre">_get_response</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">currency</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#getfx.getfxnbp.GetFxNBP._get_response" title="Permalink to this definition">¶</a></dt>
 <dd><p>Receive JSON response from FX provider.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Raises</dt>
@@ -173,7 +174,7 @@ connection</p></li>
       &copy;2021, Kamil Niklasinski.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.0.2</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
