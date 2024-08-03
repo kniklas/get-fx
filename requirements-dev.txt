@@ -2,5 +2,9 @@ entry-point-inspector==0.2.1
 wdb==3.3.0
 wdb.server==3.3.0
 pytest-watch==4.2.0
-ipython==7.31.1
+ipython==8.10.0
 twine==3.4.1
+requests>=2.32.2 # not directly required, pinned by Snyk to avoid a vulnerability
+setuptools>=70.0.0 # not directly required, pinned by Snyk to avoid a vulnerability
+urllib3>=2.2.2 # not directly required, pinned by Snyk to avoid a vulnerability
+zipp>=3.19.1 # not directly required, pinned by Snyk to avoid a vulnerability
