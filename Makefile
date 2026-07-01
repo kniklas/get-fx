@@ -1,4 +1,4 @@
-VERSIONS = 3.7.3 3.8.5 3.9.0
+VERSIONS = 3.8.5 3.9.0
 PYENV := $(shell pyenv local)
 PUBLISH_PROD_URL = kniklas.github.io
 PUBLISH_TEST_URL = kniklas.github.io/getfx-test/
