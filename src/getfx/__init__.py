@@ -18,6 +18,6 @@ Modules:
 
 """
 
-__version__ = "0.1.8"
+__version__ = "0.1.9"
 #: Defines minimum Python version, re-used in `setup.py`
-__minPythonVersion__ = "3.7"
+__minPythonVersion__ = "3.8"

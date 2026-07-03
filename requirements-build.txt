@@ -1,2 +1,2 @@
 requests==2.25.1
-Sphinx==4.0.2
+Sphinx>=7.0.0
